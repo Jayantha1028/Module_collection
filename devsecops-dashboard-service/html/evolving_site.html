@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvolveSite - AI Driven Dynamic UI</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons for UI elements -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Google Fonts Preconnect for dynamic font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- We will inject LLM-generated CSS into this style block -->
+    <style id="dynamic-styles">
+        /* Initial baseline overrides (if any) */
+        body {
+            transition: all 0.4s ease;
+        }
+        .card {
+            transition: all 0.4s ease;
+        }
+    </style>
+
+    <style>
+        /* Static UI Styles (Command Center, Toasts) */
+        #command-center {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .loader {
+            border-top-color: #3b82f6;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #toast-container {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .toast-enter {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .toast-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col relative pb-32">
+
+    <!-- Main Header -->
+    <header class="w-full p-6 sm:p-8">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="ph-fill ph-magic-wand text-3xl text-blue-600"></i>
+                <h1 class="header-title text-2xl font-bold tracking-tight">EvolveSite</h1>
+            </div>
+            <p class="text-sm font-medium text-gray-500 hidden sm:block">AI-Powered Dynamic Canvas</p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-8 py-4">
+        
+        <div class="mb-8">
+            <h2 class="text-4xl font-extrabold mb-4 heading-main">Welcome to the Evolution</h2>
+            <p class="text-lg text-gray-600 max-w-2xl paragraph-main">
+                This page is a blank canvas. Use the Command Center below to tell the AI how you want this page to look. Change the colors, fonts, layout, or theme completely just by asking.
+            </p>
+        </div>
+
+        <!-- The Container we will dynamically change layout classes on -->
+        <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Card 1 -->
+            <article class="card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="Retro Tech" class="w-full h-48 object-cover card-img">
+                <div class="p-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2 block card-tag">Innovation</span>
+                    <h3 class="card-title text-xl font-bold mb-3">The Future of Interfaces</h3>
+                    <p class="card-text text-gray-600 leading-relaxed">
+                        Explore how adaptive interfaces are changing the way we interact with software, moving from static layouts to living, breathing environments.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Abstract Art" class="w-full h-48 object-cover card-img">
+                <div class="p-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-purple-600 mb-2 block card-tag">Design</span>
+                    <h3 class="card-title text-xl font-bold mb-3">Abstract Minimalism</h3>
+                    <p class="card-text text-gray-600 leading-relaxed">
+                        Stripping away the unnecessary to focus purely on content. Learn how minimal design can yield maximum engagement.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Circuit Board" class="w-full h-48 object-cover card-img">
+                <div class="p-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2 block card-tag">Technology</span>
+                    <h3 class="card-title text-xl font-bold mb-3">Intelligence at the Edge</h3>
+                    <p class="card-text text-gray-600 leading-relaxed">
+                        Pushing computational power closer to the user. How edge computing combined with AI creates instantaneous experiences.
+                    </p>
+                </div>
+            </article>
+            
+        </div>
+    </main>
+
+    <!-- Sticky Command Center -->
+    <div id="command-center" class="fixed bottom-0 left-0 w-full bg-white/80 border-t border-gray-200 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)] z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 sm:px-6">
+            
+            <!-- Suggestion Pills -->
+            <div class="flex gap-2 overflow-x-auto pb-3 scrollbar-hide no-scrollbar" id="suggestions-container">
+                <button class="suggestion-btn whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-xs font-medium text-gray-700 transition-colors" data-prompt="Make it a dark hacker theme with green monospaced fonts">💻 Hacker Theme</button>
+                <button class="suggestion-btn whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-xs font-medium text-gray-700 transition-colors" data-prompt="Change to a single column list layout">📄 List Layout</button>
+                <button class="suggestion-btn whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-xs font-medium text-gray-700 transition-colors" data-prompt="Make it elegant and classy with serif fonts and a beige background">☕ Classy Serif</button>
+                <button class="suggestion-btn whitespace-nowrap px-4 py-1.5 rounded-full bg-gray-100 hover:bg-gray-200 text-xs font-medium text-gray-700 transition-colors" data-prompt="Make it neon cyberpunk style with hot pink and cyan">🌆 Cyberpunk</button>
+            </div>
+
+            <!-- Input Area -->
+            <form id="command-form" class="relative flex items-center">
+                <div class="absolute left-4 text-gray-400">
+                    <i class="ph ph-terminal-window text-xl"></i>
+                </div>
+                <input 
+                    type="text" 
+                    id="command-input" 
+                    placeholder="Tell me how to style this page... (e.g. 'Make it a dark theme with comic sans')" 
+                    class="w-full pl-12 pr-32 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white shadow-inner text-gray-800 font-medium transition-all"
+                    autocomplete="off"
+                >
+                <button 
+                    type="submit" 
+                    id="submit-btn"
+                    class="absolute right-2 top-2 bottom-2 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors flex items-center justify-center min-w-[100px]"
+                >
+                    <span id="btn-text">Evolve</span>
+                    <div id="btn-loader" class="hidden loader ease-linear rounded-full border-2 border-t-2 border-gray-200 h-5 w-5 border-t-white ml-2"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const form = document.getElementById('command-form');
+            const input = document.getElementById('command-input');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnLoader = document.getElementById('btn-loader');
+            const dynamicStyles = document.getElementById('dynamic-styles');
+            const cardContainer = document.getElementById('card-container');
+            const suggestions = document.querySelectorAll('.suggestion-btn');
+            const toastContainer = document.getElementById('toast-container');
+
+            // API Configuration
+            const apiKey = ""; // Canvas environment provides API key automatically
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            // We will accumulate CSS to ensure previous styles aren't completely lost unless overridden
+            let accumulatedCSS = ""; 
+
+            // System Instruction to guide the model's behavior and enforce JSON schema output
+            const systemInstruction = `You are an expert, dynamic AI web designer. The user will give you natural language commands to change the look and feel of a website. 
+You must output a JSON object containing the new CSS and layout rules to apply.
+
+The HTML structure you can target with CSS includes:
+- 'body': The main page background and default text color.
+- '.header-title': The logo/header text.
+- '.heading-main': The main H2 on the page.
+- '.paragraph-main': The main description text.
+- '#card-container': The wrapper for the cards. (Layout is controlled by Tailwind classes, but you can add CSS if needed).
+- '.card': The individual content cards.
+- '.card-img': The images inside the cards.
+- '.card-tag': The small category tag above the title.
+- '.card-title': The headings inside cards.
+- '.card-text': The paragraphs inside cards.
+
+IMPORTANT RULES FOR CSS GENERATION:
+1. When changing fonts, if you use Google Fonts, you MUST inject the '@import url(...);' statement at the VERY TOP of your 'cssStyles' string. (e.g., @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); )
+2. Make sure contrast is readable (e.g., if changing background to dark, ensure text is light).
+3. Provide valid raw CSS in the 'cssStyles' string. Do NOT wrap in markdown fences.
+
+IMPORTANT RULES FOR LAYOUT:
+1. The '#card-container' uses Tailwind CSS for layout.
+2. For a Grid layout, output 'layoutClass' like: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+3. For a List/Single column layout, output 'layoutClass' like: "flex flex-col gap-6 max-w-3xl mx-auto"
+4. For a masonry/staggered look, output 'layoutClass' like: "columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6"
+
+Based on the user's request, return a JSON object with EXACTLY this structure:
+{
+  "cssStyles": "/* Valid CSS string */",
+  "layoutClass": "/* Tailwind layout classes */",
+  "successMessage": "/* A witty, short confirmation message (max 60 chars) */"
+}`;
+
+            // Maintain conversation history for context
+            let chatHistory = [];
+
+            // Helper: Show Toast Message
+            function showToast(message, isError = false) {
+                const toast = document.createElement('div');
+                toast.className = `px-6 py-3 rounded-xl shadow-xl font-medium text-sm flex items-center gap-3 transform transition-all duration-300 toast-enter bg-white text-gray-800 border-l-4 ${isError ? 'border-red-500' : 'border-green-500'}`;
+                
+                const icon = isError ? '<i class="ph-fill ph-warning-circle text-red-500 text-xl"></i>' : '<i class="ph-fill ph-check-circle text-green-500 text-xl"></i>';
+                
+                toast.innerHTML = `
+                    ${icon}
+                    <span>${message}</span>
+                `;
+                
+                toastContainer.appendChild(toast);
+                
+                // Trigger animation
+                requestAnimationFrame(() => {
+                    toast.classList.remove('toast-enter');
+                    toast.classList.add('toast-enter-active');
+                });
+
+                // Remove after 4 seconds
+                setTimeout(() => {
+                    toast.classList.remove('toast-enter-active');
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(-20px)';
+                    setTimeout(() => toast.remove(), 300);
+                }, 4000);
+            }
+
+            // Set UI Loading State
+            function setLoading(isLoading) {
+                if (isLoading) {
+                    submitBtn.disabled = true;
+                    input.disabled = true;
+                    btnText.classList.add('hidden');
+                    btnLoader.classList.remove('hidden');
+                    submitBtn.classList.add('opacity-80', 'cursor-not-allowed');
+                } else {
+                    submitBtn.disabled = false;
+                    input.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoader.classList.add('hidden');
+                    submitBtn.classList.remove('opacity-80', 'cursor-not-allowed');
+                    input.focus();
+                }
+            }
+
+            // Process the command via Gemini
+            async function evolveSite(command) {
+                if (!command.trim()) return;
+                
+                setLoading(true);
+
+                // Add user turn to history
+                chatHistory.push({ role: "user", parts: [{ text: command }] });
+
+                const payload = {
+                    systemInstruction: { parts: [{ text: systemInstruction }] },
+                    contents: chatHistory,
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                "cssStyles": { type: "STRING" },
+                                "layoutClass": { type: "STRING" },
+                                "successMessage": { type: "STRING" }
+                            },
+                            required: ["cssStyles", "layoutClass", "successMessage"]
+                        }
+                    }
+                };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates[0].content.parts.length > 0) {
+                        const modelResponseText = result.candidates[0].content.parts[0].text;
+                        
+                        // Add model turn to history for continuous context
+                        chatHistory.push({ role: "model", parts: [{ text: modelResponseText }] });
+
+                        const parsedResult = JSON.parse(modelResponseText);
+                        
+                        applyChanges(parsedResult);
+                        showToast(parsedResult.successMessage);
+                        input.value = ''; // Clear input on success
+                        
+                    } else {
+                        throw new Error("Invalid response structure from Gemini.");
+                    }
+
+                } catch (error) {
+                    console.error("Evolution failed:", error);
+                    showToast("Failed to evolve. Please try again.", true);
+                    // Remove the failed user prompt from history so it doesn't get stuck
+                    chatHistory.pop(); 
+                } finally {
+                    setLoading(false);
+                }
+            }
+
+            // Apply the JSON payload to the DOM
+            function applyChanges({ cssStyles, layoutClass }) {
+                // Update CSS
+                if (cssStyles) {
+                    // We overwrite the style block. To keep it truly additive, we could append, 
+                    // but overwriting allows the LLM to completely "reset" styles if asked.
+                    dynamicStyles.innerHTML = cssStyles;
+                }
+
+                // Update Layout
+                if (layoutClass) {
+                    // Retain the base id, just overwrite classes
+                    // Note: We might need to ensure transition classes aren't lost, but Tailwind 
+                    // handles layout snap instantly. We add a subtle fade out/in effect for layout changes.
+                    
+                    cardContainer.style.opacity = 0;
+                    
+                    setTimeout(() => {
+                        cardContainer.className = layoutClass;
+                        // Force reflow
+                        void cardContainer.offsetWidth;
+                        cardContainer.style.opacity = 1;
+                    }, 200);
+                }
+            }
+
+            // Event Listeners
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                evolveSite(input.value);
+            });
+
+            suggestions.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const prompt = e.target.getAttribute('data-prompt');
+                    input.value = prompt;
+                    evolveSite(prompt);
+                });
+            });
+            
+            // Add slight transition style specifically for the card container opacity toggle
+            cardContainer.style.transition = "opacity 0.3s ease-in-out";
+        });
+    </script>
+</body>
+</html>

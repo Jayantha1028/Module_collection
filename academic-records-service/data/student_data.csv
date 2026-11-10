@@ -1,0 +1,481 @@
+id,name,class,specialization,mentor,attendance,cgpa
+1,Michelle Mccoy,B.Tech 2nd Year,Civil,Kimberly Rodgers,96.49,5.34
+2,Michelle Acosta,B.Tech 4th Year,Mechanical,Roy Smith,56.92,6.09
+3,Samantha Schwartz,B.Tech 2nd Year,Mechanical,Anna West,88.45,5.65
+4,Anthony Mendez,B.Tech 2nd Year,AI & Data Science,Megan Vasquez,99.39,6.52
+5,Lee Park,B.Tech 4th Year,Computer Science,Teresa Mosley,76.06,7.74
+6,David Gregory,B.Tech 2nd Year,Electronics,April Gonzalez,59.46,6.75
+7,Jacqueline Morgan,B.Tech 3rd Year,Mechanical,Jonathan Keller,93.31,5.71
+8,Michael Holloway MD,B.Tech 1st Year,Civil,Tina Haynes,79.74,7.5
+9,Joshua Elliott,B.Tech 2nd Year,Civil,Jonathan Keller,70.12,7.94
+10,Michael Fleming,B.Tech 3rd Year,Electronics,Jennifer Benson,80.73,6.55
+11,James Martin,B.Tech 2nd Year,Civil,Julia Hunter,79.43,6.38
+12,Fernando Mora,B.Tech 4th Year,Electronics,Jill Gutierrez,61.7,8.93
+13,Tracy Ortega,B.Tech 1st Year,AI & Data Science,Autumn Blanchard,54.62,9.88
+14,Gary Pierce,B.Tech 2nd Year,Computer Science,Randall Flores,65.33,5.1
+15,Sarah Garcia,B.Tech 3rd Year,Computer Science,Kyle Kim,85.31,8.96
+16,Eric Stevenson,B.Tech 3rd Year,Computer Science,Ann Thompson,92.01,8.97
+17,Alexander Smith,B.Tech 4th Year,Electronics,David Washington,93.19,9.24
+18,Jennifer Nelson,B.Tech 4th Year,Electrical,Justin Wilson,95.97,6.75
+19,Deborah Trevino MD,B.Tech 2nd Year,AI & Data Science,Katelyn Le,81.57,6.07
+20,Dawn Martinez,B.Tech 1st Year,Electrical,Kimberly Rodgers,58.63,7.5
+21,Melissa Ellis,B.Tech 3rd Year,Electronics,April Gonzalez,64.78,7.2
+22,Angela Scott,B.Tech 4th Year,Mechanical,Shawn Hill,99.8,6.46
+23,Debbie Blair,B.Tech 3rd Year,Computer Science,Julie Ruiz,50.55,9.61
+24,Thomas Jackson,B.Tech 1st Year,AI & Data Science,Shawn Hill,95.14,5.4
+25,Angela Ballard,B.Tech 4th Year,Computer Science,David Washington,96.23,8.56
+26,Dr. Lacey Reid,B.Tech 3rd Year,Mechanical,Randall Flores,85.18,5.39
+27,Kristy Hart,B.Tech 4th Year,Computer Science,Tina Haynes,85.77,9.89
+28,Anthony Vang,B.Tech 1st Year,Mechanical,Jonathan Keller,60.23,7.17
+29,Steven Miller,B.Tech 1st Year,Computer Science,Katelyn Le,55.32,8.4
+30,Diana Edwards,B.Tech 4th Year,Electronics,Jill Gutierrez,95.92,5.8
+31,Michael Crawford,B.Tech 2nd Year,Civil,Anna West,85.07,6.91
+32,Jacob Martin,B.Tech 1st Year,Mechanical,Elizabeth Castillo,93.05,6.44
+33,Lynn Myers,B.Tech 2nd Year,Electrical,Kyle Kim,78.19,9.08
+34,Amanda Monroe,B.Tech 4th Year,AI & Data Science,Katelyn Le,86.71,9.27
+35,Mrs. Christy Bailey,B.Tech 1st Year,Mechanical,Katelyn Le,64.75,8.45
+36,Sharon Smith,B.Tech 1st Year,Mechanical,Tina Haynes,70.72,6.21
+37,Dalton Porter,B.Tech 3rd Year,Electronics,April Gonzalez,98.39,9.85
+38,Kimberly Matthews,B.Tech 1st Year,Mechanical,Elizabeth Castillo,79.62,7.45
+39,Alexis Stewart,B.Tech 4th Year,Electronics,Teresa Mosley,77.35,7.64
+40,Jessica Macias,B.Tech 4th Year,Electrical,Nathan Rollins,82.43,6.6
+41,Richard Thomas,B.Tech 4th Year,Computer Science,Megan Vasquez,83.12,7.41
+42,Paula Guzman,B.Tech 1st Year,AI & Data Science,David Washington,98.05,5.35
+43,Teresa Fleming,B.Tech 1st Year,Mechanical,Jonathan Keller,72.25,6.05
+44,Regina Wilson,B.Tech 3rd Year,Civil,Elizabeth Taylor,55.91,7.35
+45,Jared Stewart,B.Tech 4th Year,Civil,April Gonzalez,76.18,5.73
+46,Gary Vasquez,B.Tech 3rd Year,Computer Science,Jill Gutierrez,75.28,9.97
+47,Harry Lloyd,B.Tech 3rd Year,Civil,Tina Haynes,66.82,9.85
+48,Eric Smith,B.Tech 2nd Year,Mechanical,Jill Gutierrez,88.56,9.79
+49,Angel Young,B.Tech 1st Year,Civil,Catherine Combs,96.43,9.27
+50,Scott Adams,B.Tech 4th Year,Electrical,Randall Flores,58.67,7.09
+51,Bryce Neal,B.Tech 1st Year,Civil,Julia Hunter,83.54,5.06
+52,Matthew Hernandez,B.Tech 3rd Year,Electrical,Julie Ruiz,88.39,5.49
+53,Kyle Hahn,B.Tech 2nd Year,Electronics,Julia Hunter,94.03,8.49
+54,Diane Dodson,B.Tech 2nd Year,Civil,Jill Gutierrez,59.39,8.59
+55,Eric Gonzalez,B.Tech 2nd Year,Civil,Jill Gutierrez,76.5,7.31
+56,Kelsey Solomon,B.Tech 4th Year,Electrical,John Smith,64.14,8.48
+57,Stacy James,B.Tech 4th Year,Electronics,Maria Jones,53.28,5.74
+58,Laura Herring,B.Tech 1st Year,Electrical,Megan Vasquez,84.29,5.73
+59,Beverly Thomas,B.Tech 1st Year,Mechanical,Ann Thompson,93.81,6.57
+60,Randy Kelly,B.Tech 3rd Year,AI & Data Science,Kimberly Rodgers,96.1,5.9
+61,Debra Ferguson,B.Tech 2nd Year,AI & Data Science,Anna West,83.49,6.36
+62,Tracy Walker,B.Tech 2nd Year,Electrical,Jonathan Keller,90.07,5.77
+63,Ronald Fisher,B.Tech 1st Year,AI & Data Science,Teresa Mosley,52.92,7.56
+64,Jessica Pitts,B.Tech 2nd Year,Civil,Kimberly Rodgers,75.66,7.5
+65,Zachary Lozano,B.Tech 1st Year,Mechanical,Nathan Rollins,80.51,9.63
+66,Joshua Cooper,B.Tech 4th Year,Civil,Elizabeth Taylor,95.69,5.01
+67,Mr. Anthony King,B.Tech 2nd Year,AI & Data Science,Sarah Banks,69.66,6.85
+68,Travis Wheeler,B.Tech 3rd Year,Civil,Julie Ruiz,73.36,5.54
+69,Sandra Jones,B.Tech 2nd Year,Mechanical,Nathan Rollins,53.94,5.37
+70,Taylor Maldonado,B.Tech 2nd Year,Computer Science,Autumn Blanchard,51.69,7.52
+71,Deborah Fisher,B.Tech 1st Year,Electrical,Shawn Hill,62.84,9.78
+72,Rachel Robertson,B.Tech 3rd Year,Electronics,Catherine Combs,90.25,7.53
+73,Jessica Brown,B.Tech 2nd Year,Computer Science,April Gonzalez,67.54,7.88
+74,Anthony Hernandez,B.Tech 4th Year,Civil,Katelyn Le,72.0,8.03
+75,Jeffery Stewart,B.Tech 4th Year,Electronics,David Washington,64.93,6.52
+76,James Parker,B.Tech 4th Year,Electronics,Anna West,61.36,8.31
+77,John Parker,B.Tech 3rd Year,Electrical,Shawn Hill,56.53,5.06
+78,Tammy Powers,B.Tech 3rd Year,AI & Data Science,Jennifer Benson,53.71,5.61
+79,Raven Johnson,B.Tech 4th Year,Computer Science,Sarah Banks,60.79,7.11
+80,Michelle Hill,B.Tech 3rd Year,Electrical,David Washington,61.09,7.02
+81,Michelle Thomas,B.Tech 2nd Year,AI & Data Science,Julie Ruiz,71.55,6.1
+82,Chad Taylor,B.Tech 2nd Year,Electronics,Ann Thompson,82.11,9.65
+83,Susan Rodriguez,B.Tech 1st Year,Electrical,Julia Hunter,72.2,5.72
+84,Margaret Maldonado,B.Tech 4th Year,Electrical,April Gonzalez,77.58,9.64
+85,Brianna Andrews,B.Tech 3rd Year,AI & Data Science,Maria Jones,98.46,8.34
+86,Cynthia Johnston,B.Tech 2nd Year,Electrical,Elizabeth Castillo,61.75,9.34
+87,Lisa Perez,B.Tech 2nd Year,Electrical,Julia Hunter,63.71,8.05
+88,Stephanie Richardson,B.Tech 1st Year,Electrical,Julie Ruiz,73.87,8.1
+89,Brenda Johnson,B.Tech 1st Year,Mechanical,John Smith,82.51,5.21
+90,Michael Martinez,B.Tech 4th Year,Civil,April Gonzalez,89.49,5.27
+91,Debra Simon,B.Tech 2nd Year,Electrical,Megan Vasquez,78.49,7.13
+92,Jordan Hamilton,B.Tech 3rd Year,Electronics,Megan Vasquez,64.27,5.81
+93,Lisa Sherman,B.Tech 1st Year,AI & Data Science,Maria Jones,84.74,6.86
+94,Stefanie Hoffman,B.Tech 4th Year,Electronics,Randall Flores,97.13,8.95
+95,Jasmine Jackson,B.Tech 4th Year,Electrical,Elizabeth Taylor,98.0,6.7
+96,Jessica Pierce,B.Tech 4th Year,Civil,Kimberly Rodgers,86.07,8.81
+97,Janice James,B.Tech 3rd Year,Mechanical,Jill Gutierrez,79.3,9.36
+98,Lori Ramirez,B.Tech 3rd Year,Mechanical,Tina Haynes,89.59,7.19
+99,Susan Blankenship,B.Tech 2nd Year,Electronics,April Gonzalez,72.21,9.48
+100,Jonathan James,B.Tech 1st Year,Electrical,Nathan Rollins,65.02,9.14
+101,Lisa Cain,B.Tech 1st Year,AI & Data Science,Megan Vasquez,50.36,7.3
+102,Amber Thompson,B.Tech 4th Year,Civil,April Gonzalez,70.93,6.26
+103,Victoria Howard,B.Tech 1st Year,Computer Science,Shawn Hill,54.17,6.69
+104,Brian Hobbs,B.Tech 4th Year,Civil,Nathan Rollins,93.4,7.86
+105,Tiffany Walker,B.Tech 3rd Year,Computer Science,Miranda Richardson,69.07,7.63
+106,Jill Hester,B.Tech 2nd Year,Mechanical,Jill Gutierrez,87.14,8.82
+107,Michael West,B.Tech 1st Year,Electrical,Justin Wilson,65.28,7.14
+108,Robert Strickland,B.Tech 4th Year,AI & Data Science,Jill Gutierrez,92.76,8.42
+109,Christopher Myers,B.Tech 2nd Year,AI & Data Science,Elizabeth Castillo,74.48,8.47
+110,Debra Bullock,B.Tech 1st Year,Civil,Tina Haynes,59.2,6.03
+111,Dustin Horn,B.Tech 2nd Year,AI & Data Science,Randall Flores,80.02,6.58
+112,Michael Joseph,B.Tech 2nd Year,Electronics,Jennifer Benson,52.33,9.12
+113,Jonathan Henry,B.Tech 1st Year,Electrical,Katelyn Le,96.73,5.04
+114,Blake Patrick,B.Tech 3rd Year,Computer Science,Randall Flores,76.67,5.52
+115,Joseph Bartlett,B.Tech 2nd Year,Electronics,Elizabeth Taylor,56.09,9.32
+116,Christopher Mcdonald,B.Tech 1st Year,Civil,Jennifer Benson,51.7,5.32
+117,Karen Kim,B.Tech 3rd Year,Electronics,Kyle Kim,80.21,6.79
+118,James Williams,B.Tech 4th Year,Electrical,Teresa Mosley,53.75,7.6
+119,Katrina Sharp,B.Tech 3rd Year,Mechanical,Ann Thompson,58.27,9.71
+120,Ronald Fleming,B.Tech 4th Year,Electrical,Melinda English,89.2,5.76
+121,Nina Myers,B.Tech 4th Year,Computer Science,Miranda Richardson,83.71,5.05
+122,Tonya Collins,B.Tech 2nd Year,Electrical,Justin Wilson,58.05,9.31
+123,Sean Baker,B.Tech 4th Year,Electronics,Jennifer Benson,80.3,6.71
+124,Nicholas Fitzpatrick,B.Tech 4th Year,Computer Science,Melinda English,75.46,8.56
+125,Amanda Foster,B.Tech 3rd Year,Electronics,Jennifer Benson,53.16,9.68
+126,Daniel Nelson,B.Tech 3rd Year,Electronics,Roy Smith,78.12,9.25
+127,Taylor Boone,B.Tech 4th Year,Mechanical,Maria Jones,71.04,9.18
+128,Cathy Rush,B.Tech 2nd Year,Electronics,Autumn Blanchard,55.18,5.04
+129,Troy Dawson,B.Tech 2nd Year,Civil,Jill Gutierrez,71.6,8.92
+130,Steven Neal,B.Tech 4th Year,Electrical,Julie Ruiz,71.59,7.29
+131,Russell Mcintosh,B.Tech 3rd Year,Electrical,Melinda English,65.47,9.03
+132,Gina White,B.Tech 2nd Year,Mechanical,Katelyn Le,85.65,5.7
+133,Daniel Chambers,B.Tech 2nd Year,Civil,April Gonzalez,57.58,5.64
+134,Rachel Nelson,B.Tech 1st Year,Mechanical,Miranda Richardson,79.5,9.64
+135,Katie Young,B.Tech 3rd Year,Mechanical,Lauren Ballard,88.11,5.31
+136,Cody Keller,B.Tech 4th Year,Electrical,Nathan Rollins,92.0,5.4
+137,Kylie Williams,B.Tech 4th Year,Civil,Jill Gutierrez,88.39,8.16
+138,Margaret Armstrong,B.Tech 4th Year,AI & Data Science,Justin Wilson,97.19,6.14
+139,Adam Stone,B.Tech 3rd Year,Mechanical,Jonathan Keller,87.87,7.44
+140,Justin Norris,B.Tech 3rd Year,AI & Data Science,Catherine Combs,74.2,6.21
+141,Leslie Snyder,B.Tech 3rd Year,Electronics,April Gonzalez,59.92,6.92
+142,Jason Myers,B.Tech 1st Year,Mechanical,David Washington,79.19,8.12
+143,Debra Rhodes,B.Tech 2nd Year,Civil,Autumn Blanchard,52.66,6.33
+144,Mary Gomez,B.Tech 4th Year,Computer Science,Julie Ruiz,66.13,9.47
+145,Lisa Ware,B.Tech 2nd Year,Mechanical,Jennifer Benson,58.93,5.34
+146,Kevin Edwards,B.Tech 3rd Year,Civil,Ann Thompson,88.47,9.0
+147,Holly Holmes,B.Tech 3rd Year,Electronics,Anna West,93.37,8.0
+148,Samantha Alvarez,B.Tech 3rd Year,Computer Science,Megan Vasquez,77.38,6.78
+149,Casey Petersen,B.Tech 4th Year,Civil,Kyle Kim,50.07,7.52
+150,Teresa White,B.Tech 1st Year,AI & Data Science,Roy Smith,80.39,9.29
+151,Teresa Parrish,B.Tech 1st Year,Electronics,Nathan Rollins,99.58,9.36
+152,Jeffrey Price,B.Tech 3rd Year,Electrical,Maria Jones,74.47,6.27
+153,Andrew Boone,B.Tech 1st Year,Civil,Jonathan Keller,74.44,6.42
+154,Virginia Zimmerman,B.Tech 2nd Year,Computer Science,Julie Ruiz,57.64,8.08
+155,Brooke Romero,B.Tech 2nd Year,Electrical,Teresa Mosley,55.62,6.64
+156,Virginia Michael,B.Tech 2nd Year,Civil,Julie Ruiz,66.17,5.39
+157,Jessica Wang,B.Tech 3rd Year,Electrical,Roy Smith,58.84,5.41
+158,Sharon Wright,B.Tech 3rd Year,Mechanical,Randall Flores,99.62,8.66
+159,Mathew Johnston,B.Tech 2nd Year,Electronics,April Gonzalez,84.73,9.79
+160,Larry Berry,B.Tech 1st Year,Electrical,Randall Flores,90.53,7.87
+161,Ashley Brown,B.Tech 3rd Year,Mechanical,Autumn Blanchard,53.97,6.88
+162,Edward Whitaker,B.Tech 2nd Year,Mechanical,Shawn Hill,58.76,9.9
+163,Shawn Cannon,B.Tech 4th Year,Mechanical,Kyle Kim,95.15,7.76
+164,Kevin Griffin,B.Tech 4th Year,AI & Data Science,Tina Haynes,81.71,8.27
+165,Jordan Ball,B.Tech 1st Year,Electronics,Julie Ruiz,99.96,6.45
+166,Steven Vaughn,B.Tech 2nd Year,Civil,Roy Smith,57.11,6.13
+167,Tiffany Fitzpatrick,B.Tech 3rd Year,AI & Data Science,Shawn Hill,63.5,5.73
+168,Melissa Caldwell,B.Tech 1st Year,Electronics,Autumn Blanchard,62.54,5.41
+169,Vernon Davis,B.Tech 1st Year,AI & Data Science,Jennifer Benson,90.73,8.39
+170,Kimberly Harris,B.Tech 4th Year,AI & Data Science,Elizabeth Castillo,52.61,5.18
+171,Joshua Barnes,B.Tech 3rd Year,AI & Data Science,Miranda Richardson,88.98,6.8
+172,Jay Gutierrez,B.Tech 3rd Year,Civil,Lauren Ballard,56.98,8.31
+173,Kevin Le,B.Tech 4th Year,Mechanical,Jill Gutierrez,90.14,6.58
+174,John Holmes,B.Tech 3rd Year,AI & Data Science,Elizabeth Taylor,76.68,7.08
+175,Sharon Russell,B.Tech 2nd Year,Civil,Jill Gutierrez,86.61,8.96
+176,Richard Haynes,B.Tech 1st Year,Mechanical,John Smith,94.77,6.16
+177,Tonya Lowe,B.Tech 1st Year,Civil,Lauren Ballard,58.61,9.15
+178,Kevin Powell,B.Tech 1st Year,Electrical,Julia Hunter,60.58,5.87
+179,John Hill,B.Tech 3rd Year,Electronics,Jill Gutierrez,79.28,8.74
+180,Daisy Mcmahon,B.Tech 3rd Year,Civil,Julia Hunter,57.92,8.83
+181,Joseph Sanford,B.Tech 2nd Year,Electronics,David Washington,50.96,7.0
+182,Ryan Jones,B.Tech 2nd Year,Civil,Katelyn Le,55.16,5.57
+183,Jack Ferguson,B.Tech 3rd Year,Electrical,Katelyn Le,80.44,5.99
+184,Harry Lewis,B.Tech 4th Year,Electrical,Shawn Hill,92.18,6.36
+185,Justin Crawford,B.Tech 4th Year,Electrical,Lauren Ballard,68.68,5.03
+186,Miss Dominique Vazquez DDS,B.Tech 1st Year,Mechanical,Maria Jones,68.14,6.0
+187,Eric Barry,B.Tech 3rd Year,Electronics,Kyle Kim,90.72,8.54
+188,Gabrielle Porter,B.Tech 3rd Year,Civil,Elizabeth Castillo,50.05,9.48
+189,Kenneth Lopez,B.Tech 3rd Year,Civil,Randall Flores,52.53,6.53
+190,Sharon Lopez,B.Tech 4th Year,AI & Data Science,Melinda English,54.85,9.21
+191,Alison Mclean,B.Tech 3rd Year,Electrical,Ann Thompson,84.92,9.88
+192,Jacob Cooper,B.Tech 1st Year,Electrical,Jennifer Benson,84.55,8.42
+193,Katherine Gentry,B.Tech 3rd Year,Civil,Sarah Banks,84.67,8.38
+194,Jay Camacho,B.Tech 3rd Year,Electrical,Shawn Hill,62.01,7.83
+195,Jordan Munoz,B.Tech 3rd Year,Civil,Maria Jones,66.27,5.99
+196,David Wong,B.Tech 3rd Year,Electrical,Shawn Hill,98.61,5.99
+197,Zachary Reed,B.Tech 1st Year,Electrical,Kimberly Rodgers,83.42,8.48
+198,John Mccoy,B.Tech 1st Year,Electronics,Lauren Ballard,80.76,8.38
+199,Allison Johnson,B.Tech 3rd Year,Mechanical,Teresa Mosley,97.15,5.6
+200,Dr. John Fuller,B.Tech 1st Year,Mechanical,Ann Thompson,76.48,6.53
+201,Stephanie Moreno,B.Tech 1st Year,Electrical,Miranda Richardson,90.17,6.06
+202,Tracie Hernandez,B.Tech 3rd Year,Civil,Jonathan Keller,66.05,8.63
+203,Melissa Stewart,B.Tech 1st Year,Computer Science,Melinda English,92.42,6.88
+204,Nicholas Hopkins,B.Tech 4th Year,Electronics,Justin Wilson,78.9,9.2
+205,Kenneth Navarro,B.Tech 2nd Year,Electrical,Julia Hunter,61.91,8.63
+206,Seth Castro,B.Tech 4th Year,Electronics,Julia Hunter,69.83,5.16
+207,Jesus Carlson,B.Tech 2nd Year,AI & Data Science,Ann Thompson,79.6,6.28
+208,Emily Martin,B.Tech 1st Year,Electronics,Lauren Ballard,77.02,9.73
+209,Chloe Martinez,B.Tech 4th Year,Mechanical,Kyle Kim,70.91,6.78
+210,Robert Sandoval,B.Tech 3rd Year,Electronics,Katelyn Le,87.47,9.08
+211,Kimberly Taylor,B.Tech 2nd Year,Civil,Julie Ruiz,72.3,6.13
+212,Alexander Parrish,B.Tech 1st Year,Mechanical,Autumn Blanchard,51.46,9.51
+213,Joshua Jensen,B.Tech 1st Year,Mechanical,Megan Vasquez,53.35,9.62
+214,Mr. Zachary Hall DDS,B.Tech 4th Year,AI & Data Science,Jennifer Benson,54.18,8.77
+215,Kent Harris,B.Tech 4th Year,Electrical,Elizabeth Taylor,82.6,6.22
+216,Brian Pham,B.Tech 3rd Year,AI & Data Science,Elizabeth Taylor,71.88,6.5
+217,Jill Thompson,B.Tech 2nd Year,Electrical,Anna West,63.24,7.84
+218,John Palmer,B.Tech 3rd Year,Civil,Jill Gutierrez,60.28,7.2
+219,Dale Brewer,B.Tech 3rd Year,Mechanical,Miranda Richardson,93.67,6.43
+220,Frances Martin,B.Tech 2nd Year,Electronics,April Gonzalez,85.99,8.24
+221,Holly Gonzalez,B.Tech 4th Year,Civil,Maria Jones,59.22,6.2
+222,Kenneth Wilkinson,B.Tech 3rd Year,Civil,Tina Haynes,78.96,5.25
+223,Thomas Roth,B.Tech 2nd Year,Computer Science,Miranda Richardson,71.9,8.17
+224,Carrie Joseph,B.Tech 2nd Year,Mechanical,Justin Wilson,99.9,7.13
+225,Brian Richardson,B.Tech 1st Year,Civil,Tina Haynes,63.38,9.97
+226,Jacob Silva,B.Tech 2nd Year,Mechanical,Tina Haynes,83.7,5.6
+227,Faith Robinson,B.Tech 2nd Year,Computer Science,Anna West,93.54,6.6
+228,Alyssa Floyd,B.Tech 2nd Year,Electronics,Elizabeth Castillo,65.76,7.21
+229,Melinda Riley,B.Tech 4th Year,Mechanical,Jonathan Keller,76.67,5.13
+230,Ronald Kennedy,B.Tech 1st Year,AI & Data Science,Kyle Kim,59.3,6.49
+231,Michael Duran,B.Tech 4th Year,Electronics,Roy Smith,74.83,7.62
+232,James Perez,B.Tech 1st Year,Electrical,Jill Gutierrez,68.37,7.45
+233,Barbara Weiss,B.Tech 3rd Year,Mechanical,Anna West,60.92,7.54
+234,Joseph Smith,B.Tech 2nd Year,Mechanical,April Gonzalez,94.87,8.66
+235,Steven Henderson,B.Tech 1st Year,AI & Data Science,Julie Ruiz,62.96,5.89
+236,Christine Martin,B.Tech 4th Year,AI & Data Science,Sarah Banks,57.62,6.13
+237,Meghan Reed,B.Tech 2nd Year,Mechanical,Shawn Hill,82.27,9.96
+238,Terry Phillips,B.Tech 4th Year,Computer Science,Anna West,87.33,6.62
+239,Rodney Gutierrez,B.Tech 2nd Year,Mechanical,Kimberly Rodgers,97.68,8.99
+240,Eric Campos,B.Tech 3rd Year,AI & Data Science,Elizabeth Taylor,53.94,9.0
+241,Julie Love,B.Tech 4th Year,Electrical,Julia Hunter,73.01,5.44
+242,Megan Johnson,B.Tech 4th Year,Electronics,Katelyn Le,58.81,7.35
+243,Heather Arnold,B.Tech 4th Year,Computer Science,Maria Jones,88.59,8.93
+244,Charles Bright,B.Tech 1st Year,Electronics,Julie Ruiz,76.99,8.54
+245,Crystal Allen,B.Tech 2nd Year,Civil,Jill Gutierrez,53.46,6.93
+246,Lance Sanders,B.Tech 3rd Year,Electronics,Melinda English,78.3,5.59
+247,Dale Dean,B.Tech 4th Year,Civil,Jonathan Keller,67.59,6.41
+248,Timothy Santana,B.Tech 3rd Year,AI & Data Science,Julie Ruiz,58.35,7.81
+249,Tracy Smith,B.Tech 4th Year,Electronics,Elizabeth Taylor,92.68,5.68
+250,Mrs. Paula Martinez,B.Tech 4th Year,AI & Data Science,John Smith,54.3,6.16
+251,Wayne White,B.Tech 3rd Year,Mechanical,Melinda English,84.82,5.26
+252,Greg Jordan,B.Tech 3rd Year,Electrical,David Washington,70.68,8.57
+253,Joseph Travis,B.Tech 1st Year,AI & Data Science,Autumn Blanchard,75.1,7.68
+254,Ryan Riddle,B.Tech 2nd Year,AI & Data Science,Ann Thompson,80.76,6.23
+255,Christine Duncan,B.Tech 3rd Year,AI & Data Science,Kyle Kim,77.21,8.43
+256,Amanda Andrews,B.Tech 3rd Year,Mechanical,Kyle Kim,86.44,8.41
+257,Brandy Garcia,B.Tech 1st Year,Electronics,John Smith,85.93,9.65
+258,Andrew Navarro,B.Tech 4th Year,Computer Science,Jonathan Keller,70.49,6.36
+259,Robin Patterson,B.Tech 2nd Year,Mechanical,Teresa Mosley,50.27,8.55
+260,Andrew Coleman,B.Tech 3rd Year,Electrical,Tina Haynes,68.7,6.01
+261,Joann Cunningham,B.Tech 4th Year,Electrical,Randall Flores,64.87,9.92
+262,Judith Hahn,B.Tech 1st Year,Civil,Elizabeth Castillo,96.7,8.08
+263,James Hensley,B.Tech 2nd Year,Civil,Sarah Banks,98.84,7.08
+264,Dr. Melissa Farmer MD,B.Tech 4th Year,AI & Data Science,Elizabeth Taylor,78.74,6.12
+265,Adam Rodriguez,B.Tech 3rd Year,Computer Science,Shawn Hill,87.12,5.41
+266,Robert Brown,B.Tech 3rd Year,Computer Science,Nathan Rollins,72.44,9.16
+267,Angela Yang,B.Tech 4th Year,Electrical,Nathan Rollins,57.28,7.64
+268,Scott Adams,B.Tech 3rd Year,Mechanical,Randall Flores,78.92,5.31
+269,Deanna Jackson,B.Tech 4th Year,Mechanical,Maria Jones,85.17,6.42
+270,Mariah Thomas,B.Tech 3rd Year,Electronics,Elizabeth Castillo,52.8,7.08
+271,Paula Brown,B.Tech 3rd Year,Computer Science,David Washington,85.1,5.22
+272,Randall Norris,B.Tech 3rd Year,Computer Science,Shawn Hill,74.43,8.71
+273,Marie Peterson,B.Tech 4th Year,Mechanical,Melinda English,70.46,9.53
+274,Bobby Hernandez,B.Tech 1st Year,Computer Science,Sarah Banks,92.76,6.15
+275,Lori Bowen,B.Tech 4th Year,Electrical,Nathan Rollins,73.37,9.73
+276,Brandi Turner,B.Tech 3rd Year,AI & Data Science,Kimberly Rodgers,59.72,5.94
+277,Samuel Jimenez,B.Tech 3rd Year,AI & Data Science,Catherine Combs,73.26,5.02
+278,Tiffany Castro,B.Tech 1st Year,Electrical,Shawn Hill,65.26,9.28
+279,Brittany Rice,B.Tech 2nd Year,AI & Data Science,Anna West,87.24,5.39
+280,Angela Russell,B.Tech 3rd Year,Mechanical,Kimberly Rodgers,55.85,9.2
+281,Jamie Short,B.Tech 4th Year,Mechanical,Jennifer Benson,60.11,7.32
+282,Alyssa Miller MD,B.Tech 3rd Year,Electrical,John Smith,64.51,6.35
+283,Carmen Lewis,B.Tech 2nd Year,Electronics,Nathan Rollins,92.57,9.12
+284,Melanie Coleman,B.Tech 3rd Year,Civil,Randall Flores,73.57,8.65
+285,Kimberly Campbell,B.Tech 3rd Year,AI & Data Science,Nathan Rollins,70.05,8.12
+286,Kyle Mcdonald,B.Tech 3rd Year,Civil,Kimberly Rodgers,68.97,8.87
+287,Zachary Zuniga,B.Tech 1st Year,Electrical,Kimberly Rodgers,56.76,6.76
+288,Samantha Hernandez,B.Tech 2nd Year,Computer Science,Elizabeth Castillo,83.6,5.37
+289,Krystal Bean,B.Tech 2nd Year,Electrical,Kimberly Rodgers,81.51,9.22
+290,Michelle Cox,B.Tech 3rd Year,Computer Science,Randall Flores,90.41,8.88
+291,Madison Hoffman,B.Tech 4th Year,AI & Data Science,Julia Hunter,53.94,5.93
+292,Richard Edwards,B.Tech 3rd Year,Computer Science,Elizabeth Taylor,96.42,6.9
+293,Alexander Robinson,B.Tech 4th Year,Mechanical,Jill Gutierrez,64.06,9.05
+294,Bobby Stanley,B.Tech 3rd Year,Electronics,Anna West,93.84,8.75
+295,Nicholas Flores,B.Tech 1st Year,Computer Science,Miranda Richardson,88.14,7.77
+296,Dr. Kathryn Young,B.Tech 3rd Year,Electrical,Katelyn Le,69.48,5.77
+297,Jeffrey Miller,B.Tech 4th Year,Electronics,Sarah Banks,68.63,5.48
+298,Jennifer Powell,B.Tech 3rd Year,Computer Science,Jonathan Keller,96.15,7.41
+299,Benjamin Myers,B.Tech 1st Year,Mechanical,Jonathan Keller,59.94,6.59
+300,Timothy Poole,B.Tech 2nd Year,Mechanical,Miranda Richardson,74.74,6.35
+301,Brandon Gonzalez,B.Tech 2nd Year,Electrical,Catherine Combs,99.06,5.42
+302,Matthew Moore,B.Tech 1st Year,Mechanical,Miranda Richardson,63.23,5.78
+303,Susan Olson,B.Tech 4th Year,Computer Science,Tina Haynes,64.39,5.08
+304,Nichole Oconnor,B.Tech 3rd Year,AI & Data Science,Autumn Blanchard,50.9,6.27
+305,Eugene Mckinney,B.Tech 3rd Year,Electrical,Jill Gutierrez,95.06,8.87
+306,Courtney Chavez,B.Tech 2nd Year,Civil,Justin Wilson,74.15,6.66
+307,Charles Campbell,B.Tech 2nd Year,Electrical,Lauren Ballard,55.2,9.71
+308,Kimberly Nguyen,B.Tech 2nd Year,AI & Data Science,Teresa Mosley,58.98,5.39
+309,Charles Sandoval,B.Tech 4th Year,Electrical,April Gonzalez,68.28,8.86
+310,Richard Mitchell,B.Tech 3rd Year,Electronics,Katelyn Le,85.96,7.16
+311,Ryan Blackburn,B.Tech 3rd Year,Electrical,Jill Gutierrez,58.33,9.86
+312,John Davis,B.Tech 2nd Year,AI & Data Science,Maria Jones,74.99,8.83
+313,Brandon Nichols,B.Tech 2nd Year,AI & Data Science,Randall Flores,97.79,5.08
+314,Chad Harris,B.Tech 1st Year,Mechanical,Ann Thompson,87.2,7.44
+315,Cody Hicks,B.Tech 1st Year,Computer Science,Lauren Ballard,93.66,9.56
+316,Henry Robertson,B.Tech 3rd Year,Mechanical,Kimberly Rodgers,63.62,6.56
+317,Debra Bailey,B.Tech 2nd Year,Mechanical,Roy Smith,74.07,7.31
+318,Brian Glenn,B.Tech 3rd Year,Civil,Julie Ruiz,93.19,6.44
+319,Jerry Martinez,B.Tech 2nd Year,Computer Science,Tina Haynes,75.46,8.57
+320,Courtney Dunn,B.Tech 3rd Year,Electronics,Jill Gutierrez,58.67,8.33
+321,Paul Nielsen,B.Tech 4th Year,AI & Data Science,Sarah Banks,69.87,7.67
+322,Cody Bishop,B.Tech 1st Year,AI & Data Science,April Gonzalez,84.22,9.28
+323,John Fowler,B.Tech 3rd Year,Computer Science,Teresa Mosley,75.73,8.94
+324,Jay Miller,B.Tech 3rd Year,AI & Data Science,Ann Thompson,68.18,9.35
+325,Jason Soto,B.Tech 3rd Year,Mechanical,Tina Haynes,65.39,5.7
+326,Devin Crawford,B.Tech 2nd Year,Civil,Lauren Ballard,72.43,7.13
+327,Margaret Glenn,B.Tech 4th Year,AI & Data Science,Lauren Ballard,53.96,9.11
+328,Desiree Carney,B.Tech 1st Year,AI & Data Science,John Smith,79.89,7.33
+329,Jo Williams,B.Tech 2nd Year,Electrical,David Washington,97.92,7.94
+330,Patricia Robinson,B.Tech 1st Year,Electronics,Jennifer Benson,86.01,9.96
+331,Matthew Lee,B.Tech 4th Year,Computer Science,Kyle Kim,92.04,7.93
+332,Sandra Gallagher,B.Tech 2nd Year,AI & Data Science,Maria Jones,81.13,5.05
+333,Jonathan Jones,B.Tech 1st Year,Mechanical,Kyle Kim,58.58,8.86
+334,Christopher Parsons,B.Tech 3rd Year,AI & Data Science,Roy Smith,60.44,5.89
+335,Christopher Lyons,B.Tech 1st Year,Computer Science,Shawn Hill,76.7,7.2
+336,James Goodman,B.Tech 2nd Year,Computer Science,Julie Ruiz,56.36,6.9
+337,Susan Aguilar,B.Tech 3rd Year,Civil,Teresa Mosley,76.36,7.82
+338,Susan Lynch,B.Tech 1st Year,Computer Science,Elizabeth Taylor,57.77,8.67
+339,Angela Robinson,B.Tech 3rd Year,Electrical,Jonathan Keller,70.25,9.73
+340,Mark Smith,B.Tech 4th Year,Civil,Kyle Kim,95.35,9.07
+341,Kimberly Wheeler,B.Tech 1st Year,Computer Science,Jennifer Benson,95.36,5.02
+342,Ashley Davis MD,B.Tech 1st Year,Electronics,Jill Gutierrez,75.35,6.39
+343,Patrick Jimenez,B.Tech 4th Year,Computer Science,David Washington,94.28,9.36
+344,David Moore,B.Tech 1st Year,Electrical,Kyle Kim,99.9,8.62
+345,Cheryl Spence,B.Tech 3rd Year,Electronics,Miranda Richardson,70.63,9.98
+346,Jennifer Clark,B.Tech 4th Year,Mechanical,Teresa Mosley,68.99,7.92
+347,Douglas Mcintyre,B.Tech 4th Year,Computer Science,Melinda English,91.61,9.56
+348,Gloria Cabrera,B.Tech 1st Year,Computer Science,Tina Haynes,87.62,7.7
+349,Anita Johnson,B.Tech 4th Year,Civil,Lauren Ballard,55.08,6.36
+350,Kelly Gordon,B.Tech 3rd Year,AI & Data Science,Tina Haynes,85.64,6.91
+351,Beth Hernandez,B.Tech 3rd Year,Computer Science,Anna West,63.94,8.31
+352,Roberta Smith,B.Tech 2nd Year,Electrical,Randall Flores,57.09,7.76
+353,Wayne Cox,B.Tech 2nd Year,Mechanical,Nathan Rollins,91.43,7.49
+354,Robert Rodriguez,B.Tech 4th Year,AI & Data Science,Shawn Hill,82.33,6.85
+355,Kelly Fisher,B.Tech 2nd Year,Electronics,Julie Ruiz,85.83,8.14
+356,Christopher Montgomery,B.Tech 1st Year,Electrical,Maria Jones,58.03,7.53
+357,Paul Patterson,B.Tech 1st Year,AI & Data Science,Sarah Banks,74.89,8.42
+358,Matthew Taylor,B.Tech 3rd Year,Computer Science,Roy Smith,98.74,5.85
+359,Marc Cox,B.Tech 4th Year,Civil,Tina Haynes,59.38,6.63
+360,Sarah Thompson,B.Tech 4th Year,Computer Science,Jonathan Keller,53.61,5.26
+361,Dr. Clifford Brown,B.Tech 2nd Year,Electronics,Katelyn Le,53.09,6.38
+362,Valerie Case,B.Tech 1st Year,Computer Science,Maria Jones,76.82,7.41
+363,Brittany Cortez,B.Tech 1st Year,Electrical,Lauren Ballard,73.65,9.74
+364,Vanessa Willis,B.Tech 3rd Year,AI & Data Science,Miranda Richardson,59.58,5.84
+365,Ronald Blair,B.Tech 1st Year,Computer Science,Elizabeth Taylor,89.99,5.28
+366,Joseph Lambert,B.Tech 4th Year,Computer Science,Catherine Combs,69.86,7.98
+367,Russell Riley,B.Tech 1st Year,Electrical,Catherine Combs,51.82,9.25
+368,Brent Lowery,B.Tech 4th Year,Electrical,Autumn Blanchard,68.23,8.8
+369,Nancy Phillips,B.Tech 3rd Year,AI & Data Science,Catherine Combs,91.07,7.02
+370,Mr. Marvin Weber,B.Tech 2nd Year,Computer Science,Jennifer Benson,92.97,6.64
+371,Lisa Allen,B.Tech 4th Year,Electronics,Miranda Richardson,55.36,9.86
+372,Abigail Dixon,B.Tech 4th Year,Civil,Elizabeth Castillo,54.16,6.61
+373,Tiffany Peterson,B.Tech 3rd Year,Computer Science,Jennifer Benson,85.42,9.77
+374,Aaron Wright,B.Tech 2nd Year,Civil,Jonathan Keller,84.57,8.9
+375,Barbara Ortega,B.Tech 2nd Year,Electrical,Nathan Rollins,84.36,8.5
+376,Christopher Warren,B.Tech 2nd Year,Civil,Kyle Kim,73.56,9.56
+377,Steve Strickland,B.Tech 1st Year,Civil,Katelyn Le,57.26,9.1
+378,Taylor Wright,B.Tech 4th Year,Civil,Miranda Richardson,61.4,8.29
+379,Teresa Patel,B.Tech 3rd Year,Computer Science,Justin Wilson,59.85,6.23
+380,Nathan Jordan,B.Tech 1st Year,AI & Data Science,Julie Ruiz,55.41,8.89
+381,Denise Garcia,B.Tech 1st Year,Civil,Justin Wilson,71.48,6.02
+382,Kyle Aguilar,B.Tech 3rd Year,Computer Science,Sarah Banks,89.26,8.0
+383,Jordan Bishop,B.Tech 3rd Year,Electronics,Miranda Richardson,88.69,9.03
+384,Matthew Johnson,B.Tech 3rd Year,Civil,Tina Haynes,57.91,8.73
+385,Elizabeth Meyer,B.Tech 4th Year,Computer Science,Elizabeth Taylor,88.57,9.81
+386,Tammy Russell,B.Tech 4th Year,AI & Data Science,Sarah Banks,58.3,7.75
+387,Donald Ayers,B.Tech 3rd Year,Mechanical,Megan Vasquez,90.23,9.22
+388,Victoria Arnold,B.Tech 2nd Year,Computer Science,Elizabeth Castillo,84.96,6.94
+389,Mary Humphrey,B.Tech 4th Year,Computer Science,Anna West,79.82,9.14
+390,Adriana White,B.Tech 1st Year,Civil,Nathan Rollins,53.71,8.46
+391,Rachael Stewart,B.Tech 3rd Year,AI & Data Science,Teresa Mosley,99.11,8.37
+392,Jacqueline Barr,B.Tech 2nd Year,AI & Data Science,Maria Jones,65.08,5.61
+393,Maurice Hall,B.Tech 2nd Year,Civil,Catherine Combs,86.04,8.05
+394,Mark Pugh,B.Tech 4th Year,Civil,Justin Wilson,94.64,7.96
+395,Travis Lee MD,B.Tech 4th Year,Electrical,Miranda Richardson,74.95,7.91
+396,Mary Owens,B.Tech 1st Year,Mechanical,Katelyn Le,88.09,6.53
+397,Rodney Johnson,B.Tech 3rd Year,Electrical,Roy Smith,93.47,6.18
+398,Scott Perez,B.Tech 1st Year,Electrical,April Gonzalez,84.62,8.58
+399,Larry Santiago,B.Tech 1st Year,Civil,John Smith,83.93,9.73
+400,Jillian Anderson,B.Tech 4th Year,Electrical,Jonathan Keller,70.52,7.57
+401,Crystal Thompson,B.Tech 1st Year,Civil,Catherine Combs,90.3,6.2
+402,Michael Sosa,B.Tech 3rd Year,Computer Science,John Smith,70.1,9.66
+403,Doris Fisher,B.Tech 4th Year,Computer Science,Katelyn Le,97.63,9.34
+404,Mr. Nicholas Rose,B.Tech 4th Year,Mechanical,Elizabeth Castillo,86.26,5.36
+405,Stephanie Bird,B.Tech 4th Year,Computer Science,Jennifer Benson,79.46,7.12
+406,Michelle Parrish,B.Tech 4th Year,Mechanical,Kyle Kim,98.49,7.43
+407,Anthony Andersen,B.Tech 3rd Year,Mechanical,Elizabeth Castillo,57.4,6.14
+408,Kimberly Roman,B.Tech 2nd Year,Electronics,Megan Vasquez,75.6,7.59
+409,Amanda Richards,B.Tech 1st Year,Civil,Randall Flores,67.44,9.19
+410,Robert Roberts,B.Tech 2nd Year,Mechanical,Shawn Hill,76.19,7.18
+411,Tiffany Paul,B.Tech 3rd Year,Civil,Katelyn Le,84.02,5.84
+412,Tina Fletcher,B.Tech 2nd Year,Mechanical,Megan Vasquez,73.21,5.76
+413,Dylan Clark,B.Tech 2nd Year,Mechanical,Tina Haynes,86.55,7.56
+414,Kenneth Williams,B.Tech 4th Year,Electronics,David Washington,75.42,9.49
+415,Matthew Murillo,B.Tech 1st Year,Computer Science,Katelyn Le,95.41,8.88
+416,Lynn Herrera,B.Tech 1st Year,Mechanical,April Gonzalez,54.81,9.26
+417,Robert Reyes,B.Tech 1st Year,Electrical,Kyle Kim,68.96,6.89
+418,Paige Harrington,B.Tech 4th Year,Computer Science,Melinda English,61.9,7.52
+419,Karen Coffey,B.Tech 3rd Year,Computer Science,Ann Thompson,68.94,9.5
+420,Veronica Berry,B.Tech 1st Year,Civil,Nathan Rollins,79.34,9.43
+421,Brian Patterson,B.Tech 3rd Year,Mechanical,April Gonzalez,53.94,5.75
+422,Timothy Williams,B.Tech 3rd Year,Computer Science,Sarah Banks,96.68,5.55
+423,Christine Harris,B.Tech 3rd Year,Mechanical,Melinda English,57.45,8.82
+424,Debbie Miller,B.Tech 2nd Year,Civil,Roy Smith,69.33,5.86
+425,Angela Harrison,B.Tech 3rd Year,Civil,Randall Flores,60.83,5.54
+426,Bonnie Bryant,B.Tech 4th Year,Civil,Megan Vasquez,97.9,5.71
+427,Karen Palmer,B.Tech 4th Year,Computer Science,Teresa Mosley,85.82,8.46
+428,Maxwell Moore,B.Tech 2nd Year,Mechanical,Autumn Blanchard,76.06,7.25
+429,Monica Rodriguez,B.Tech 1st Year,Electrical,Jonathan Keller,73.26,5.69
+430,Mary Rhodes,B.Tech 4th Year,Computer Science,Melinda English,50.52,6.96
+431,Haley Mack,B.Tech 2nd Year,Mechanical,Nathan Rollins,96.27,7.39
+432,Mark Walsh,B.Tech 4th Year,Mechanical,Elizabeth Castillo,68.84,5.4
+433,Julie Roberts,B.Tech 1st Year,AI & Data Science,Julie Ruiz,58.23,8.0
+434,Barbara Simpson,B.Tech 1st Year,Electrical,Elizabeth Castillo,86.6,8.88
+435,Kiara Mendoza,B.Tech 1st Year,Electronics,Ann Thompson,85.93,5.78
+436,Vickie Sanchez,B.Tech 3rd Year,Civil,Miranda Richardson,50.27,7.15
+437,Kirk Thomas,B.Tech 1st Year,Mechanical,Nathan Rollins,73.23,5.76
+438,Jeffrey Barry,B.Tech 2nd Year,AI & Data Science,Jennifer Benson,98.32,9.89
+439,Sarah Blake,B.Tech 2nd Year,Electrical,Elizabeth Taylor,61.77,8.4
+440,Rodney Cox,B.Tech 4th Year,Electronics,Megan Vasquez,87.03,7.12
+441,Aaron Bartlett,B.Tech 1st Year,Civil,Tina Haynes,97.12,7.75
+442,James Miller,B.Tech 4th Year,Electronics,Ann Thompson,62.29,5.52
+443,Mary Cooper,B.Tech 4th Year,Mechanical,Justin Wilson,85.2,9.93
+444,Sarah Salazar,B.Tech 3rd Year,Civil,Catherine Combs,78.07,6.57
+445,Deanna Lara,B.Tech 2nd Year,Electronics,Maria Jones,68.89,9.77
+446,Michael Brown,B.Tech 3rd Year,Electronics,Elizabeth Taylor,81.49,9.42
+447,Emily Murphy,B.Tech 1st Year,Civil,Catherine Combs,51.03,8.89
+448,Kristen Miles,B.Tech 4th Year,Electrical,Jill Gutierrez,93.8,5.83
+449,Jeffrey Gonzalez,B.Tech 4th Year,AI & Data Science,David Washington,65.25,7.39
+450,Brian Hurst,B.Tech 1st Year,Civil,Jennifer Benson,64.51,8.04
+451,Cody Perry,B.Tech 1st Year,Computer Science,Justin Wilson,93.72,9.64
+452,Jennifer Evans,B.Tech 1st Year,Electronics,Anna West,70.47,7.24
+453,Elizabeth Johnson,B.Tech 2nd Year,AI & Data Science,Sarah Banks,64.64,6.88
+454,Micheal Mcknight,B.Tech 2nd Year,AI & Data Science,Elizabeth Castillo,92.74,9.33
+455,Sally Zuniga,B.Tech 3rd Year,Computer Science,Randall Flores,58.72,9.32
+456,Elizabeth Maxwell,B.Tech 1st Year,Mechanical,Randall Flores,58.21,7.8
+457,Robert Rogers,B.Tech 3rd Year,Electrical,Miranda Richardson,78.2,6.4
+458,Edward Burke,B.Tech 3rd Year,Civil,Roy Smith,70.66,8.83
+459,Michael Edwards,B.Tech 4th Year,Computer Science,Julie Ruiz,51.49,6.68
+460,Joseph Lester,B.Tech 2nd Year,Electronics,Roy Smith,57.31,8.39
+461,Matthew Vaughn,B.Tech 3rd Year,Electronics,Miranda Richardson,70.65,7.11
+462,Jack Miller,B.Tech 1st Year,Mechanical,Megan Vasquez,70.35,8.22
+463,Elizabeth Munoz,B.Tech 2nd Year,Mechanical,Jennifer Benson,67.02,9.16
+464,John Anthony,B.Tech 3rd Year,Electronics,Tina Haynes,80.32,8.5
+465,Richard Gray,B.Tech 4th Year,Mechanical,Justin Wilson,57.4,5.97
+466,Dr. Mia Morrow,B.Tech 1st Year,Computer Science,Elizabeth Taylor,96.45,9.92
+467,Christian Ramos,B.Tech 1st Year,Electronics,April Gonzalez,69.36,5.73
+468,Dean Peterson,B.Tech 3rd Year,Mechanical,Tina Haynes,93.23,9.46
+469,Elizabeth Hall,B.Tech 2nd Year,Electrical,Roy Smith,75.22,8.23
+470,Michael Foster,B.Tech 4th Year,Computer Science,Katelyn Le,78.57,7.63
+471,Emily Krueger,B.Tech 1st Year,Electronics,Jill Gutierrez,55.14,5.8
+472,Christopher Patterson,B.Tech 2nd Year,Mechanical,Nathan Rollins,57.8,8.95
+473,Jeremy Walker,B.Tech 2nd Year,Civil,Katelyn Le,94.99,8.31
+474,Amanda Curtis,B.Tech 1st Year,AI & Data Science,Justin Wilson,97.71,7.23
+475,Jennifer Adams,B.Tech 4th Year,Electronics,Catherine Combs,54.06,5.88
+476,Jon Martinez,B.Tech 1st Year,Computer Science,David Washington,76.81,7.32
+477,Jordan Brooks,B.Tech 3rd Year,Computer Science,Kyle Kim,82.37,9.17
+478,Jonathan Meyer,B.Tech 1st Year,Electrical,Katelyn Le,99.93,9.01
+479,Norman Taylor,B.Tech 2nd Year,Civil,Justin Wilson,78.1,8.14
+480,Dawn Hebert,B.Tech 3rd Year,Computer Science,Randall Flores,99.41,9.04

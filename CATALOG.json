@@ -1,0 +1,322 @@
+{
+  "catalog_version": "1.0.0",
+  "total_microservices": 35,
+  "collected_folder": "collected_microservices",
+  "microservices": [
+    {
+      "name": "ecommerce-py-api-gateway",
+      "port": 8000,
+      "source_folder": "Ecommerce_Microservices_Kubernetes",
+      "stack": "FastAPI / Python",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:8000/health",
+      "description": "API Gateway, reverse proxy and customer web portal"
+    },
+    {
+      "name": "ecommerce-py-auth-service",
+      "port": 8001,
+      "source_folder": "Ecommerce_Microservices_Kubernetes",
+      "stack": "FastAPI / PostgreSQL / JWT",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:8001/health",
+      "description": "Customer registration, password hashing, and JWT identity management"
+    },
+    {
+      "name": "ecommerce-py-product-service",
+      "port": 8002,
+      "source_folder": "Ecommerce_Microservices_Kubernetes",
+      "stack": "FastAPI / PostgreSQL / Redis",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:8002/health",
+      "description": "Product catalog, categories, pricing, and Redis caching"
+    },
+    {
+      "name": "ecommerce-py-cart-service",
+      "port": 8003,
+      "source_folder": "Ecommerce_Microservices_Kubernetes",
+      "stack": "FastAPI / PostgreSQL / Redis",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:8003/health",
+      "description": "Active shopper cart persistence and checkout transition"
+    },
+    {
+      "name": "ecommerce-py-order-service",
+      "port": 8004,
+      "source_folder": "Ecommerce_Microservices_Kubernetes",
+      "stack": "FastAPI / PostgreSQL",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:8004/health",
+      "description": "Order placement, inventory coordination, and status lifecycle"
+    },
+    {
+      "name": "ecommerce-py-payment-service",
+      "port": 8005,
+      "source_folder": "Ecommerce_Microservices_Kubernetes",
+      "stack": "FastAPI / PostgreSQL / Razorpay",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:8005/health",
+      "description": "Payment gateway processing, signature verification, and webhooks"
+    },
+    {
+      "name": "ecommerce-node-gateway-service",
+      "port": 5000,
+      "source_folder": "ecommerce",
+      "stack": "NGINX Alpine / HTML5",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:5000/",
+      "description": "Storefront UI and reverse proxy routing for Node.js e-commerce services"
+    },
+    {
+      "name": "ecommerce-node-auth-service",
+      "port": 5001,
+      "source_folder": "ecommerce",
+      "stack": "Node.js / Express / JWT",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:5001/health",
+      "description": "Express.js customer authentication and token service"
+    },
+    {
+      "name": "ecommerce-node-product-service",
+      "port": 5002,
+      "source_folder": "ecommerce",
+      "stack": "Node.js / Express / MongoDB",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:5002/health",
+      "description": "Express.js product catalog and items service"
+    },
+    {
+      "name": "ecommerce-node-cart-service",
+      "port": 5003,
+      "source_folder": "ecommerce",
+      "stack": "Node.js / Express",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:5003/health",
+      "description": "Express.js cart basket management service"
+    },
+    {
+      "name": "ecommerce-node-order-service",
+      "port": 5004,
+      "source_folder": "ecommerce",
+      "stack": "Node.js / Express",
+      "category": "E-Commerce",
+      "health_url": "http://localhost:5004/health",
+      "description": "Express.js order placement and processing service"
+    },
+    {
+      "name": "k8s-cve-intelligence-service",
+      "port": 8010,
+      "source_folder": "K8S-security-assessment-main",
+      "stack": "FastAPI / Python",
+      "category": "Security & Assessment",
+      "health_url": "http://localhost:8010/health",
+      "description": "Offline container vulnerability knowledge base, CVE lookup, and scoring"
+    },
+    {
+      "name": "k8s-security-scanner-service",
+      "port": 8011,
+      "source_folder": "K8S-security-assessment-main",
+      "stack": "FastAPI / Python / PyYAML",
+      "category": "Security & Assessment",
+      "health_url": "http://localhost:8011/health",
+      "description": "Kubernetes manifest scanning against 56 codified vulnerability signatures across 7 planes"
+    },
+    {
+      "name": "k8s-compliance-reporting-service",
+      "port": 8012,
+      "source_folder": "K8S-security-assessment-main",
+      "stack": "FastAPI / Python / HTML",
+      "category": "Security & Assessment",
+      "health_url": "http://localhost:8012/health",
+      "description": "Executive compliance audit and printable HTML/Markdown report generation"
+    },
+    {
+      "name": "maas-orchestrator-service",
+      "port": 8020,
+      "source_folder": "MaaS",
+      "stack": "FastAPI / Terraform / Jinja2",
+      "category": "Observability & Infrastructure",
+      "health_url": "http://localhost:8020/health",
+      "description": "Monitoring-as-a-Service multi-tenant Prometheus & Grafana stack orchestrator"
+    },
+    {
+      "name": "ocr-document-service",
+      "port": 8030,
+      "source_folder": "OCR",
+      "stack": "FastAPI / Tesseract / Pillow",
+      "category": "AI & Computer Vision",
+      "health_url": "http://localhost:8030/health",
+      "description": "Optical Character Recognition, layout parsing, and entity extraction from images/documents"
+    },
+    {
+      "name": "pyspark-analytics-service",
+      "port": 8040,
+      "source_folder": "Python_codes",
+      "stack": "FastAPI / Pandas / PySpark",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8040/health",
+      "description": "Dataframe summaries, column filtering, and distributed word-count map-reduce jobs"
+    },
+    {
+      "name": "math-computation-service",
+      "port": 8041,
+      "source_folder": "Python_codes",
+      "stack": "FastAPI / Python",
+      "category": "Algorithms & Computation",
+      "health_url": "http://localhost:8041/health",
+      "description": "Validated square calculation, seeded random sequence generation, and Archimedean spiral coordinates"
+    },
+    {
+      "name": "slm-gpt-inference-service",
+      "port": 8050,
+      "source_folder": "SLM-main",
+      "stack": "FastAPI / PyTorch",
+      "category": "AI & NLP",
+      "health_url": "http://localhost:8050/health",
+      "description": "Small Language Model GPT-2 decoder text continuation, tokenization, and cross-entropy loss evaluation"
+    },
+    {
+      "name": "magic-slate-recognition-service",
+      "port": 8060,
+      "source_folder": "Sketch_sheet",
+      "stack": "FastAPI / Python",
+      "category": "AI & Computer Vision",
+      "health_url": "http://localhost:8060/health",
+      "description": "Geometric point-cloud handwriting stroke classification and speech phonics synthesis"
+    },
+    {
+      "name": "sketch-sheet-web-service",
+      "port": 8061,
+      "source_folder": "Sketch_sheet",
+      "stack": "NGINX Alpine / React Native Web",
+      "category": "Web Applications",
+      "health_url": "http://localhost:8061/",
+      "description": "Containerized web chalkboard and digital slate interface for children's learning"
+    },
+    {
+      "name": "tulu-transliteration-service",
+      "port": 8070,
+      "source_folder": "Tulu_Model",
+      "stack": "FastAPI / Unicode 16.0",
+      "category": "AI & NLP",
+      "health_url": "http://localhost:8070/health",
+      "description": "Multi-way transliterator between Latin phonetic, Kannada, and Tulu-Tigalari Unicode 16.0"
+    },
+    {
+      "name": "tulu-morphology-service",
+      "port": 8071,
+      "source_folder": "Tulu_Model",
+      "stack": "FastAPI / Python NLP",
+      "category": "AI & NLP",
+      "health_url": "http://localhost:8071/health",
+      "description": "Tulu morphological analyzer, lemmatizer, 8-case noun declensions, and verb conjugator"
+    },
+    {
+      "name": "vcs-normalizer-service",
+      "port": 8080,
+      "source_folder": "VCS",
+      "stack": "FastAPI / Regex",
+      "category": "Developer Tools",
+      "health_url": "http://localhost:8080/health",
+      "description": "Version control author name rearrangement ('Last, First' -> 'First Last') and git hook validation"
+    },
+    {
+      "name": "crossplane-cloud-controller-service",
+      "port": 8090,
+      "source_folder": "crossplane-local-demo",
+      "stack": "FastAPI / PyYAML / Crossplane",
+      "category": "Cloud & Infrastructure",
+      "health_url": "http://localhost:8090/health",
+      "description": "Declarative cloud infrastructure provisioning, LocalStack/AWS bucket manager, and drift detection"
+    },
+    {
+      "name": "cloud-welcome-service",
+      "port": 8095,
+      "source_folder": "docker-sample",
+      "stack": "NGINX Alpine / HTML5",
+      "category": "Web Applications",
+      "health_url": "http://localhost:8095/",
+      "description": "Static web hosting welcome container"
+    },
+    {
+      "name": "vibespace-social-service",
+      "port": 8100,
+      "source_folder": "live_page",
+      "stack": "NGINX Alpine / React / Vite",
+      "category": "Web Applications",
+      "health_url": "http://localhost:8100/",
+      "description": "VibeSpace creative social sandbox, custom web profiles, and club room canvas"
+    },
+    {
+      "name": "devsecops-dashboard-service",
+      "port": 8101,
+      "source_folder": "live_page",
+      "stack": "NGINX Alpine / Tailwind CSS",
+      "category": "Observability & Infrastructure",
+      "health_url": "http://localhost:8101/",
+      "description": "Interactive DevSecOps telemetry, cluster health, and vulnerability dashboard"
+    },
+    {
+      "name": "dbt-runner-service",
+      "port": 8110,
+      "source_folder": "my_dbt_project",
+      "stack": "FastAPI / Jinja2 / PyYAML",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8110/health",
+      "description": "dbt transformation runner, SQL compiler, model DAG lineage extractor, and run orchestrator"
+    },
+    {
+      "name": "portfolio-web-service",
+      "port": 8120,
+      "source_folder": "my_portfolio",
+      "stack": "NGINX Alpine / HTML5 / CSS3",
+      "category": "Web Applications",
+      "health_url": "http://localhost:8120/",
+      "description": "Developer personal portfolio, project showcases, and responsive resume template"
+    },
+    {
+      "name": "inventory-warehouse-service",
+      "port": 8130,
+      "source_folder": "sample_data",
+      "stack": "FastAPI / Pandas",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8130/health",
+      "description": "Warehouse stock tracker and inventory aggregation across 7 global distribution centers"
+    },
+    {
+      "name": "market-analytics-service",
+      "port": 8131,
+      "source_folder": "sample_data",
+      "stack": "FastAPI / Pandas",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8131/health",
+      "description": "Financial analytics service providing NIFTY 50, Smallcap 250, and Top 20 Gainers feeds"
+    },
+    {
+      "name": "currency-exchange-service",
+      "port": 8132,
+      "source_folder": "sample_data",
+      "stack": "FastAPI / Pandas",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8132/health",
+      "description": "World currency catalog, ISO country mapping, and currency conversion computations"
+    },
+    {
+      "name": "academic-records-service",
+      "port": 8133,
+      "source_folder": "sample_data",
+      "stack": "FastAPI / Pandas",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8133/health",
+      "description": "University and enterprise records management for students, faculty advisors, and staff"
+    },
+    {
+      "name": "gitdeck-dashboard-service",
+      "port": 8140,
+      "source_folder": "gitdeck.html",
+      "stack": "NGINX Alpine / HTML5",
+      "category": "Developer Tools",
+      "health_url": "http://localhost:8140/",
+      "description": "Customizable 3-column pegboard developer dashboard for Git and repo productivity"
+    }
+  ]
+}

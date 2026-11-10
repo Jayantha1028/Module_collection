@@ -1,0 +1,186 @@
+version: "3.8"
+
+services:
+  # --- E-Commerce Python Services ---
+  ecommerce-py-api-gateway:
+    build: ./ecommerce-py-api-gateway
+    ports: ["8000:8000"]
+    restart: unless-stopped
+
+  ecommerce-py-auth-service:
+    build: ./ecommerce-py-auth-service
+    ports: ["8001:8001"]
+    restart: unless-stopped
+
+  ecommerce-py-product-service:
+    build: ./ecommerce-py-product-service
+    ports: ["8002:8002"]
+    restart: unless-stopped
+
+  ecommerce-py-cart-service:
+    build: ./ecommerce-py-cart-service
+    ports: ["8003:8003"]
+    restart: unless-stopped
+
+  ecommerce-py-order-service:
+    build: ./ecommerce-py-order-service
+    ports: ["8004:8004"]
+    restart: unless-stopped
+
+  ecommerce-py-payment-service:
+    build: ./ecommerce-py-payment-service
+    ports: ["8005:8005"]
+    restart: unless-stopped
+
+  # --- E-Commerce Node.js Services ---
+  ecommerce-node-gateway-service:
+    build: ./ecommerce-node-gateway-service
+    ports: ["5000:80"]
+    restart: unless-stopped
+
+  ecommerce-node-auth-service:
+    build: ./ecommerce-node-auth-service
+    ports: ["5001:5001"]
+    restart: unless-stopped
+
+  ecommerce-node-product-service:
+    build: ./ecommerce-node-product-service
+    ports: ["5002:5002"]
+    restart: unless-stopped
+
+  ecommerce-node-cart-service:
+    build: ./ecommerce-node-cart-service
+    ports: ["5003:5003"]
+    restart: unless-stopped
+
+  ecommerce-node-order-service:
+    build: ./ecommerce-node-order-service
+    ports: ["5004:5004"]
+    restart: unless-stopped
+
+  # --- K8s Security Assessment Services ---
+  k8s-cve-intelligence-service:
+    build: ./k8s-cve-intelligence-service
+    ports: ["8010:8010"]
+    restart: unless-stopped
+
+  k8s-security-scanner-service:
+    build: ./k8s-security-scanner-service
+    ports: ["8011:8011"]
+    restart: unless-stopped
+
+  k8s-compliance-reporting-service:
+    build: ./k8s-compliance-reporting-service
+    ports: ["8012:8012"]
+    restart: unless-stopped
+
+  # --- Monitoring-as-a-Service ---
+  maas-orchestrator-service:
+    build: ./maas-orchestrator-service
+    ports: ["8020:8020"]
+    restart: unless-stopped
+
+  # --- Optical Character Recognition ---
+  ocr-document-service:
+    build: ./ocr-document-service
+    ports: ["8030:8030"]
+    restart: unless-stopped
+
+  # --- Data & Computation Services ---
+  pyspark-analytics-service:
+    build: ./pyspark-analytics-service
+    ports: ["8040:8040"]
+    restart: unless-stopped
+
+  math-computation-service:
+    build: ./math-computation-service
+    ports: ["8041:8041"]
+    restart: unless-stopped
+
+  # --- AI & NLP Services ---
+  slm-gpt-inference-service:
+    build: ./slm-gpt-inference-service
+    ports: ["8050:8050"]
+    restart: unless-stopped
+
+  magic-slate-recognition-service:
+    build: ./magic-slate-recognition-service
+    ports: ["8060:8060"]
+    restart: unless-stopped
+
+  sketch-sheet-web-service:
+    build: ./sketch-sheet-web-service
+    ports: ["8061:80"]
+    restart: unless-stopped
+
+  tulu-transliteration-service:
+    build: ./tulu-transliteration-service
+    ports: ["8070:8070"]
+    restart: unless-stopped
+
+  tulu-morphology-service:
+    build: ./tulu-morphology-service
+    ports: ["8071:8071"]
+    restart: unless-stopped
+
+  # --- Cloud, Tools & Dashboards ---
+  vcs-normalizer-service:
+    build: ./vcs-normalizer-service
+    ports: ["8080:8080"]
+    restart: unless-stopped
+
+  crossplane-cloud-controller-service:
+    build: ./crossplane-cloud-controller-service
+    ports: ["8090:8090"]
+    restart: unless-stopped
+
+  cloud-welcome-service:
+    build: ./cloud-welcome-service
+    ports: ["8095:80"]
+    restart: unless-stopped
+
+  vibespace-social-service:
+    build: ./vibespace-social-service
+    ports: ["8100:80"]
+    restart: unless-stopped
+
+  devsecops-dashboard-service:
+    build: ./devsecops-dashboard-service
+    ports: ["8101:80"]
+    restart: unless-stopped
+
+  dbt-runner-service:
+    build: ./dbt-runner-service
+    ports: ["8110:8110"]
+    restart: unless-stopped
+
+  portfolio-web-service:
+    build: ./portfolio-web-service
+    ports: ["8120:80"]
+    restart: unless-stopped
+
+  # --- Sample Data Analytics Services ---
+  inventory-warehouse-service:
+    build: ./inventory-warehouse-service
+    ports: ["8130:8130"]
+    restart: unless-stopped
+
+  market-analytics-service:
+    build: ./market-analytics-service
+    ports: ["8131:8131"]
+    restart: unless-stopped
+
+  currency-exchange-service:
+    build: ./currency-exchange-service
+    ports: ["8132:8132"]
+    restart: unless-stopped
+
+  academic-records-service:
+    build: ./academic-records-service
+    ports: ["8133:8133"]
+    restart: unless-stopped
+
+  gitdeck-dashboard-service:
+    build: ./gitdeck-dashboard-service
+    ports: ["8140:80"]
+    restart: unless-stopped

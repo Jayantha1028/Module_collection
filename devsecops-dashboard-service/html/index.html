@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps & K8s Evolving Dashboard</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        /* Baseline CSS Variables that will be dynamically updated */
+        :root {
+            --bg-color: #0f172a; /* Slate 900 */
+            --text-color: #f8fafc; /* Slate 50 */
+            --accent-color: #3b82f6; /* Blue 500 */
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            transition: background-color 0.5s ease, color 0.5s ease, font-family 0.5s ease;
+            min-height: 100vh;
+            padding-bottom: 6rem; /* Space for command center */
+        }
+
+        /* Dynamic Widget Card Styles */
+        .dashboard-widget {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+        }
+
+        .dashboard-widget:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        .text-accent {
+            color: var(--accent-color);
+            transition: color 0.5s ease;
+        }
+        
+        .bg-accent {
+            background-color: var(--accent-color);
+            transition: background-color 0.5s ease;
+        }
+        
+        .border-accent {
+            border-color: var(--accent-color);
+            transition: border-color 0.5s ease;
+        }
+
+        /* Layout Grid */
+        #dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            transition: grid-template-columns 0.5s ease;
+        }
+
+        @media (max-width: 1024px) {
+            #dashboard-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+        }
+        @media (max-width: 640px) {
+            #dashboard-grid { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+        }
+
+        /* Command Center specific styles */
+        #command-center {
+            background: linear-gradient(to top, var(--bg-color) 60%, transparent);
+        }
+        .command-input-wrapper {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Loader */
+        .spinner {
+            border: 2px solid rgba(255,255,255,0.1);
+            border-left-color: var(--text-color);
+            border-radius: 50%;
+            width: 1.25rem;
+            height: 1.25rem;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+    
+    <!-- Container for dynamically injected Google Fonts -->
+    <div id="font-injector"></div>
+</head>
+<body>
+
+    <header class="w-full p-6 border-b border-[var(--border-color)]">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="ph-fill ph-shield-check text-4xl text-accent"></i>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight">K8s DevSecOps</h1>
+                    <p class="text-sm opacity-70" id="theme-indicator">Current Theme: Default Dark</p>
+                </div>
+            </div>
+            <div class="hidden sm:flex items-center gap-4 text-sm font-medium">
+                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> System Online</span>
+                <span class="opacity-50">|</span>
+                <span>Region: us-east-1</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full max-w-7xl mx-auto p-6 mt-4">
+        
+        <div id="dashboard-grid">
+            <!-- Widget 1: Risk Score -->
+            <div class="dashboard-widget rounded-2xl p-6 flex flex-col justify-between">
+                <div class="flex items-start justify-between mb-4">
+                    <h2 class="text-lg font-semibold flex items-center gap-2"><i class="ph ph-activity text-accent"></i> Real-time Risk Score</h2>
+                    <i class="ph-fill ph-warning text-yellow-500 text-xl"></i>
+                </div>
+                <div class="flex items-end gap-4">
+                    <span class="text-6xl font-extrabold tracking-tighter">74</span>
+                    <span class="text-sm opacity-70 mb-2 border border-[var(--border-color)] px-2 py-1 rounded">+12% vs last hr</span>
+                </div>
+                <div class="w-full bg-[var(--border-color)] h-2 rounded-full mt-6 overflow-hidden">
+                    <div class="bg-yellow-500 h-full w-[74%] rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Widget 2: Node Status -->
+            <div class="dashboard-widget rounded-2xl p-6">
+                <div class="flex items-start justify-between mb-6">
+                    <h2 class="text-lg font-semibold flex items-center gap-2"><i class="ph ph-hard-drives text-accent"></i> Cluster Nodes</h2>
+                    <span class="text-xs font-bold px-2 py-1 bg-[var(--border-color)] rounded text-accent">3/3 Ready</span>
+                </div>
+                <ul class="space-y-4">
+                    <li class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-green-500"></i>
+                            <span class="font-mono text-sm">worker-node-01</span>
+                        </div>
+                        <span class="text-xs opacity-60">CPU: 42%</span>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-green-500"></i>
+                            <span class="font-mono text-sm">worker-node-02</span>
+                        </div>
+                        <span class="text-xs opacity-60">CPU: 68%</span>
+                    </li>
+                    <li class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-warning-circle text-yellow-500"></i>
+                            <span class="font-mono text-sm">control-plane-01</span>
+                        </div>
+                        <span class="text-xs opacity-60">Mem: 89%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Widget 3: Vulnerability Scan -->
+            <div class="dashboard-widget rounded-2xl p-6">
+                <h2 class="text-lg font-semibold flex items-center gap-2 mb-6"><i class="ph ph-radar text-accent"></i> Image Scans</h2>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="text-red-400 font-bold">Critical</span>
+                            <span>2</span>
+                        </div>
+                        <div class="w-full bg-[var(--border-color)] h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-red-400 h-full w-[15%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="text-orange-400 font-bold">High</span>
+                            <span>14</span>
+                        </div>
+                        <div class="w-full bg-[var(--border-color)] h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-orange-400 h-full w-[40%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="text-blue-400 font-bold">Medium</span>
+                            <span>38</span>
+                        </div>
+                        <div class="w-full bg-[var(--border-color)] h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-blue-400 h-full w-[65%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget 4: Network Traffic logs -->
+            <div class="dashboard-widget rounded-2xl p-6 col-span-1 md:col-span-2 lg:col-span-3">
+                <div class="flex items-start justify-between mb-4">
+                    <h2 class="text-lg font-semibold flex items-center gap-2"><i class="ph ph-shield-warning text-accent"></i> Blocked Intrusions (Last 5 mins)</h2>
+                    <button class="text-xs border border-[var(--border-color)] px-3 py-1 rounded hover:bg-[var(--border-color)] transition-colors">View Logs</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm whitespace-nowrap">
+                        <thead class="opacity-60 border-b border-[var(--border-color)]">
+                            <tr>
+                                <th class="pb-2 font-medium">Timestamp</th>
+                                <th class="pb-2 font-medium">Source IP</th>
+                                <th class="pb-2 font-medium">Target Pod</th>
+                                <th class="pb-2 font-medium">Rule ID</th>
+                                <th class="pb-2 font-medium">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-mono text-xs">
+                            <tr class="border-b border-[var(--border-color)] border-opacity-30">
+                                <td class="py-3 text-opacity-80">12:12:45 UTC</td>
+                                <td class="py-3 text-red-400">192.168.1.104</td>
+                                <td class="py-3">auth-service-v2</td>
+                                <td class="py-3">WAF-SQLI-001</td>
+                                <td class="py-3"><span class="px-2 py-1 bg-red-500 bg-opacity-20 text-red-400 rounded">BLOCKED</span></td>
+                            </tr>
+                            <tr class="border-b border-[var(--border-color)] border-opacity-30">
+                                <td class="py-3 text-opacity-80">12:10:12 UTC</td>
+                                <td class="py-3 text-red-400">45.33.22.11</td>
+                                <td class="py-3">payment-gateway</td>
+                                <td class="py-3">DDOS-RATE-LIMIT</td>
+                                <td class="py-3"><span class="px-2 py-1 bg-red-500 bg-opacity-20 text-red-400 rounded">DROPPED</span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 text-opacity-80">12:08:59 UTC</td>
+                                <td class="py-3 text-red-400">10.0.4.55</td>
+                                <td class="py-3">ingress-nginx</td>
+                                <td class="py-3">MALFORMED-REQ</td>
+                                <td class="py-3"><span class="px-2 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded">LOGGED</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="command-center" class="fixed bottom-0 left-0 w-full pt-10 pb-6 px-4 z-50 pointer-events-none">
+        <div class="max-w-3xl mx-auto pointer-events-auto">
+            
+            <!-- Notification Toast -->
+            <div id="toast" class="absolute -top-12 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg bg-[var(--accent-color)] text-white text-sm font-medium opacity-0 transition-opacity duration-300 pointer-events-none flex items-center gap-2 shadow-lg">
+                <i class="ph-fill ph-info"></i>
+                <span id="toast-msg">Updated successfully</span>
+            </div>
+
+            <!-- Input Form -->
+            <form id="ai-form" class="relative group">
+                <div class="command-input-wrapper flex items-center rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-focus-within:border-[var(--accent-color)] group-focus-within:ring-2 group-focus-within:ring-[var(--accent-color)] group-focus-within:ring-opacity-20">
+                    <div class="pl-5 text-accent opacity-70 group-focus-within:opacity-100 transition-opacity">
+                        <i class="ph ph-magic-wand text-xl"></i>
+                    </div>
+                    <input 
+                        type="text" 
+                        id="prompt-input" 
+                        class="w-full bg-transparent border-none text-[var(--text-color)] placeholder:text-[var(--text-color)] placeholder:opacity-40 px-4 py-4 focus:outline-none focus:ring-0 font-medium" 
+                        placeholder="Evolve the UI... e.g., 'Make it a matrix hacker theme' or '2 column layout'"
+                        autocomplete="off"
+                    >
+                    <button 
+                        type="submit" 
+                        id="submit-btn"
+                        class="bg-accent text-white font-bold px-6 py-4 transition-colors hover:brightness-110 flex items-center justify-center min-w-[120px]"
+                    >
+                        <span id="btn-text">Evolve</span>
+                        <div id="btn-loader" class="spinner hidden"></div>
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Quick Suggestions -->
+            <div class="flex gap-2 mt-3 overflow-x-auto pb-2 scrollbar-hide">
+                <button class="suggestion-chip text-xs px-3 py-1.5 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors whitespace-nowrap" data-prompt="Dark hacker theme with neon green monospace fonts">💻 Hacker Theme</button>
+                <button class="suggestion-chip text-xs px-3 py-1.5 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors whitespace-nowrap" data-prompt="Make it a clean minimalist light theme with 2 columns">✨ Minimal Light (2 Cols)</button>
+                <button class="suggestion-chip text-xs px-3 py-1.5 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors whitespace-nowrap" data-prompt="Ocean blue aesthetic, rounded and soft">🌊 Ocean Blue</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('ai-form');
+            const input = document.getElementById('prompt-input');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnLoader = document.getElementById('btn-loader');
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            const gridContainer = document.getElementById('dashboard-grid');
+            const fontInjector = document.getElementById('font-injector');
+            const themeIndicator = document.getElementById('theme-indicator');
+
+            // API Configuration
+            const apiKey = ""; // Canvas provides this securely
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            // Chat history to maintain context
+            let chatHistory = [];
+
+            // The exact schema we expect the LLM to return
+            const schema = {
+                type: "OBJECT",
+                properties: {
+                    backgroundColor: { type: "STRING", description: "Main CSS background color (e.g., #000000, rgb(..), or valid name)" },
+                    fontColor: { type: "STRING", description: "Main CSS text color ensuring good contrast with background" },
+                    fontFamily: { type: "STRING", description: "CSS font-family string. You can use standard fonts or Google Fonts (e.g., 'Space Mono', 'Roboto', 'Press Start 2P')" },
+                    gridColumns: { type: "INTEGER", description: "Number of columns for the main layout grid (must be 1, 2, 3, or 4)" },
+                    theme: { type: "STRING", description: "A brief, catchy name for the new theme applied" },
+                    accentColor: { type: "STRING", description: "A vibrant CSS color used for highlights, borders, and buttons" },
+                    successMessage: { type: "STRING", description: "A short, witty confirmation message to show the user" }
+                },
+                required: ["backgroundColor", "fontColor", "fontFamily", "gridColumns", "theme", "accentColor", "successMessage"]
+            };
+
+            const systemInstruction = `You are a dynamic CSS and Layout Engine. The user will ask to change the appearance of a dashboard. 
+You must interpret their request and output a precise JSON object matching the provided schema. 
+Rules:
+1. Ensure 'fontColor' has high contrast against 'backgroundColor'.
+2. For 'fontFamily', if it's a specific named font like 'Fira Code' or 'Oswald', provide exactly the font name. The system will auto-import it from Google Fonts if it's not a generic sans-serif.
+3. 'gridColumns' determines the layout width (1 = vertical list, 3 = standard grid).
+4. Be creative with the 'accentColor' to match the theme.
+Respond ONLY with the JSON object.`;
+
+            function showToast(message, isError = false) {
+                toastMsg.textContent = message;
+                toast.classList.remove('opacity-0');
+                toast.classList.replace(isError ? 'bg-[var(--accent-color)]' : 'bg-red-500', isError ? 'bg-red-500' : 'bg-[var(--accent-color)]');
+                
+                setTimeout(() => {
+                    toast.classList.add('opacity-0');
+                }, 4000);
+            }
+
+            function setUIState(loading) {
+                if (loading) {
+                    input.disabled = true;
+                    submitBtn.disabled = true;
+                    btnText.classList.add('hidden');
+                    btnLoader.classList.remove('hidden');
+                } else {
+                    input.disabled = false;
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnLoader.classList.add('hidden');
+                    input.focus();
+                }
+            }
+
+            function applyEvolution(config) {
+                console.log("Applying config:", config);
+                const root = document.documentElement;
+
+                // 1. Inject Google Font if it seems like a custom font
+                const fontName = config.fontFamily.split(',')[0].replace(/['"]/g, '').trim();
+                const genericFonts = ['sans-serif', 'serif', 'monospace', 'system-ui', 'Arial', 'Helvetica', 'Times New Roman', 'Courier New'];
+                
+                if (!genericFonts.includes(fontName) && fontName.length > 2) {
+                    // Create Google Font import link
+                    const formattedName = fontName.replace(/\s+/g, '+');
+                    fontInjector.innerHTML = `<link href="https://fonts.googleapis.com/css2?family=${formattedName}:wght@400;500;700&display=swap" rel="stylesheet">`;
+                }
+
+                // 2. Update CSS Variables (Triggers smooth transitions)
+                root.style.setProperty('--bg-color', config.backgroundColor);
+                root.style.setProperty('--text-color', config.fontColor);
+                root.style.setProperty('--font-family', config.fontFamily);
+                root.style.setProperty('--accent-color', config.accentColor);
+
+                // Adjust card/border backgrounds based on text color (light vs dark mode heuristic)
+                const isDarkText = config.fontColor.includes('000') || config.fontColor.includes('black') || config.fontColor.includes('gray-800') || config.backgroundColor.includes('fff') || config.backgroundColor.includes('white');
+                
+                if (isDarkText) {
+                    root.style.setProperty('--card-bg', 'rgba(0, 0, 0, 0.03)');
+                    root.style.setProperty('--border-color', 'rgba(0, 0, 0, 0.1)');
+                } else {
+                    root.style.setProperty('--card-bg', 'rgba(255, 255, 255, 0.05)');
+                    root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.1)');
+                }
+
+                // 3. Update Layout
+                gridContainer.style.gridTemplateColumns = `repeat(${config.gridColumns}, minmax(0, 1fr))`;
+
+                // 4. Update UI labels
+                themeIndicator.textContent = `Current Theme: ${config.theme}`;
+            }
+
+            async function submitCommand(commandText) {
+                if (!commandText.trim()) return;
+                
+                setUIState(true);
+                chatHistory.push({ role: "user", parts: [{ text: commandText }] });
+
+                const payload = {
+                    systemInstruction: { parts: [{ text: systemInstruction }] },
+                    contents: chatHistory,
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: schema
+                    }
+                };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API Error: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0) {
+                        const jsonText = result.candidates[0].content.parts[0].text;
+                        const config = JSON.parse(jsonText);
+                        
+                        // Save model response to history for context
+                        chatHistory.push({ role: "model", parts: [{ text: jsonText }] });
+
+                        applyEvolution(config);
+                        showToast(config.successMessage);
+                        input.value = '';
+                    } else {
+                        throw new Error("Invalid response format.");
+                    }
+                } catch (err) {
+                    console.error("Evolution Failed:", err);
+                    showToast("Failed to evolve UI. Check console.", true);
+                    chatHistory.pop(); // Remove failed user attempt
+                } finally {
+                    setUIState(false);
+                }
+            }
+
+            // Event Listeners
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                submitCommand(input.value);
+            });
+
+            document.querySelectorAll('.suggestion-chip').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const prompt = chip.getAttribute('data-prompt');
+                    input.value = prompt;
+                    submitCommand(prompt);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

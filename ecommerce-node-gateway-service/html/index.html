@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nimbus Store</title>
+<style>
+:root{
+  --bg:#0e1016;--panel:#161922;--panel2:#1d212c;--line:#272c39;--text:#eceef5;--muted:#8d95aa;
+  --accent:#7c9cff;--accent2:#a78bfa;--ok:#34d399;--err:#f87171;--r:16px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme:light){:root{
+  --bg:#f5f6fb;--panel:#fff;--panel2:#eef0f7;--line:#e2e5ef;--text:#161922;--muted:#667085;
+  --accent:#4a68f0;--accent2:#7a58ee;--shadow:0 10px 30px rgba(20,30,60,.12);
+}}
+*{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
+body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input{font:inherit;color:inherit}
+.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+.bar{max-width:1180px;margin:auto;padding:14px 20px;display:flex;gap:12px;align-items:center}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.02em;display:flex;gap:8px;align-items:center}
+.logo i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-block}
+.search{flex:1;max-width:460px;margin-left:12px}
+.search input{width:100%;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);outline:none}
+.search input:focus{border-color:var(--accent)}
+.spacer{flex:1}
+#who{color:var(--muted);font-size:14px}
+.btn{padding:10px 16px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-weight:600;font-size:14px;transition:.15s}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent;color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.badge{background:#fff;color:var(--accent);border-radius:99px;font-size:11px;font-weight:800;padding:2px 7px;margin-left:8px}
+main{max-width:1180px;margin:auto;padding:28px 20px 80px}
+.hero{border-radius:24px;padding:38px;border:1px solid var(--line);margin-bottom:26px;
+  background:radial-gradient(900px 300px at 85% -20%,color-mix(in srgb,var(--accent2) 40%,transparent),transparent),linear-gradient(135deg,var(--panel),var(--panel2))}
+.hero h1{font-size:clamp(26px,4vw,40px);letter-spacing:-.03em;line-height:1.1}
+.hero p{color:var(--muted);margin-top:12px;max-width:540px;line-height:1.5}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:var(--panel);font-size:14px}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+.thumb{height:150px;display:grid;place-items:center;font-size:64px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 18%,var(--panel2)),color-mix(in srgb,var(--accent2) 14%,var(--panel2)))}
+.body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.body h3{font-size:16px}
+.body p{font-size:13px;color:var(--muted);flex:1;line-height:1.45}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
+.price{font-weight:800;font-size:18px}
+.low{font-size:12px;color:var(--err)}
+.scrim{position:fixed;inset:0;background:rgba(5,8,15,.55);opacity:0;pointer-events:none;transition:.2s;z-index:30}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:40;transform:translateX(100%);transition:.25s;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);font-weight:800;font-size:18px}
+.x{width:32px;height:32px;border-radius:10px;background:var(--panel2);font-size:18px}
+.list{flex:1;overflow:auto;padding:8px 20px}
+.df{padding:18px 20px;border-top:1px solid var(--line)}
+.line{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.em{font-size:28px;width:52px;height:52px;display:grid;place-items:center;background:var(--panel2);border-radius:12px;flex:none}
+.info{flex:1;min-width:0}
+.info b{display:block;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.info span{font-size:13px;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:28px;height:28px;border-radius:8px;background:var(--panel2);border:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin-bottom:14px}
+.df .btn{width:100%}
+.modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%);width:min(440px,92%);max-height:88vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;z-index:40;opacity:0;pointer-events:none;transition:.2s}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.mh h2{letter-spacing:-.02em}
+.field{display:block;margin-bottom:12px}
+.field span{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
+.field input{width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);outline:none}
+.field input:focus{border-color:var(--accent)}
+.tabs{display:flex;gap:6px;background:var(--panel2);padding:4px;border-radius:12px;margin-bottom:18px}
+.tabs button{flex:1;padding:8px;border-radius:9px;font-weight:600;font-size:14px;color:var(--muted)}
+.tabs button.act{background:var(--panel);color:var(--text)}
+.err{color:var(--err);font-size:13px;min-height:18px;margin-bottom:8px}
+#authForm .btn{width:100%}
+.order{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;background:var(--panel2);font-size:14px}
+.order .h{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px}
+.order .h b{color:var(--text)}
+.pill{background:color-mix(in srgb,var(--ok) 20%,transparent);color:var(--ok);border-radius:99px;padding:2px 9px;font-size:11px;font-weight:700}
+.empty{text-align:center;color:var(--muted);padding:44px 10px;grid-column:1/-1}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);background:var(--panel);border:1px solid var(--line);padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);opacity:0;transition:.25s;z-index:60;font-size:14px;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:640px){.search{display:none}.hero{padding:24px}#who{display:none}}
+</style>
+</head>
+<body>
+<div class="top"><div class="bar">
+  <div class="logo"><i></i>Nimbus</div>
+  <div class="search"><input id="q" placeholder="Search products..." autocomplete="off"></div>
+  <div class="spacer"></div>
+  <span id="who"></span>
+  <button class="btn" id="ordersBtn" hidden>Orders</button>
+  <button class="btn" id="authBtn">Sign in</button>
+  <button class="btn primary" id="cartBtn">Cart<span class="badge" id="count">0</span></button>
+</div></div>
+
+<main>
+  <section class="hero">
+    <h1>Everything you need,<br>served by microservices.</h1>
+    <p>Auth, catalog, cart and orders run as independent services, each with its own database, behind one gateway.</p>
+  </section>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="cartDrawer">
+  <div class="dh"><span>Your cart</span><button class="x" data-close>×</button></div>
+  <div class="list" id="cartList"></div>
+  <div class="df">
+    <div class="total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="btn primary" id="checkout" disabled>Checkout</button>
+  </div>
+</aside>
+
+<div class="modal" id="authModal">
+  <div class="mh"><h2 id="authTitle">Welcome back</h2><button class="x" data-close>×</button></div>
+  <div class="tabs"><button data-mode="login" class="act">Sign in</button><button data-mode="register">Create account</button></div>
+  <form id="authForm">
+    <label class="field" id="nameField" hidden><span>Name</span><input name="name" autocomplete="name" disabled></label>
+    <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+    <label class="field"><span>Password</span><input name="password" type="password" minlength="6" required autocomplete="current-password"></label>
+    <div class="err" id="authErr"></div>
+    <button class="btn primary" id="authSubmit">Sign in</button>
+  </form>
+</div>
+
+<div class="modal" id="ordersModal">
+  <div class="mh"><h2>Your orders</h2><button class="x" data-close>×</button></div>
+  <div id="ordersList"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const money = (c) => "$" + (c / 100).toFixed(2);
+const EMPTY_CART = { items: [], count: 0, totalCents: 0 };
+
+const S = {
+  token: localStorage.getItem("token"),
+  user: JSON.parse(localStorage.getItem("user") || "null"),
+  products: [], cats: ["All"], cart: EMPTY_CART, category: "All", q: "", mode: "login",
+};
+
+async function api(path, { method = "GET", body } = {}) {
+  const headers = { "Content-Type": "application/json" };
+  if (S.token) headers.Authorization = "Bearer " + S.token;
+  const res = await fetch("/api" + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+  const data = await res.json().catch(() => ({}));
+  if (res.status === 401 && S.token && !path.startsWith("/auth/")) { signOut(true); toast("Session expired, please sign in again"); }
+  if (!res.ok) throw new Error(data.error || "Something went wrong");
+  return data;
+}
+
+let toastTimer;
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg; t.classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("on"), 2600);
+}
+const show = (id) => { $("#scrim").classList.add("on"); $(id).classList.add("on"); };
+const closeAll = () => document.querySelectorAll(".drawer.on,.modal.on,.scrim.on").forEach((e) => e.classList.remove("on"));
+document.querySelectorAll("[data-close]").forEach((b) => (b.onclick = closeAll));
+$("#scrim").onclick = closeAll;
+document.addEventListener("keydown", (e) => e.key === "Escape" && closeAll());
+
+/* ---------- catalog ---------- */
+function renderChips() {
+  $("#chips").innerHTML = S.cats.map((c) => `<button class="chip ${c === S.category ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+}
+$("#chips").onclick = (e) => {
+  const b = e.target.closest("[data-c]");
+  if (!b) return;
+  S.category = b.dataset.c; renderChips(); loadProducts().catch((err) => toast(err.message));
+};
+
+function renderGrid() {
+  $("#grid").innerHTML = S.products.length
+    ? S.products.map((p) => `
+      <article class="card">
+        <div class="thumb">${esc(p.image)}</div>
+        <div class="body">
+          <span class="cat">${esc(p.category)}</span>
+          <h3>${esc(p.name)}</h3>
+          <p>${esc(p.description)}</p>
+          <div class="row">
+            <span class="price">${money(p.priceCents)}</span>
+            ${p.stock > 0 ? `<button class="btn primary" data-add="${p.id}">Add to cart</button>` : `<span class="low">Sold out</span>`}
+          </div>
+          ${p.stock > 0 && p.stock <= 10 ? `<span class="low">Only ${p.stock} left</span>` : ""}
+        </div>
+      </article>`).join("")
+    : `<div class="empty">No products found.</div>`;
+}
+
+async function loadProducts() {
+  const p = new URLSearchParams();
+  if (S.q) p.set("q", S.q);
+  if (S.category !== "All") p.set("category", S.category);
+  S.products = await api("/products?" + p);
+  renderGrid();
+}
+
+let searchTimer;
+$("#q").oninput = (e) => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => { S.q = e.target.value.trim(); loadProducts().catch(() => {}); }, 250);
+};
+
+/* ---------- cart ---------- */
+function renderCart() {
+  const c = S.cart;
+  $("#count").textContent = c.count;
+  $("#cartList").innerHTML = c.items.length
+    ? c.items.map((i) => `
+      <div class="line">
+        <div class="em">${esc(i.image)}</div>
+        <div class="info"><b>${esc(i.name)}</b><span>${money(i.priceCents)} each</span></div>
+        <div class="qty">
+          <button data-id="${i.productId}" data-act="dec">−</button>
+          <span>${i.qty}</span>
+          <button data-id="${i.productId}" data-act="inc">+</button>
+        </div>
+      </div>`).join("")
+    : `<div class="empty">Your cart is empty.</div>`;
+  $("#cartTotal").textContent = money(c.totalCents);
+  $("#checkout").disabled = !c.items.length;
+}
+
+async function loadCart() {
+  try { S.cart = await api("/cart"); renderCart(); } catch { /* ignore */ }
+}
+
+async function setQty(productId, qty) {
+  S.cart = await api("/cart/items", { method: "PUT", body: { productId, qty } });
+  renderCart();
+}
+
+$("#grid").onclick = async (e) => {
+  const b = e.target.closest("[data-add]");
+  if (!b) return;
+  if (!S.token) { toast("Please sign in to add items"); return openAuth("login"); }
+  const id = Number(b.dataset.add);
+  const cur = (S.cart.items.find((i) => i.productId === id) || {}).qty || 0;
+  try { await setQty(id, cur + 1); toast("Added to cart"); } catch (err) { toast(err.message); }
+};
+
+$("#cartList").onclick = async (e) => {
+  const b = e.target.closest("button[data-id]");
+  if (!b) return;
+  const id = Number(b.dataset.id);
+  const cur = S.cart.items.find((i) => i.productId === id).qty;
+  try { await setQty(id, b.dataset.act === "inc" ? cur + 1 : cur - 1); } catch (err) { toast(err.message); }
+};
+
+$("#cartBtn").onclick = () => {
+  if (!S.token) { toast("Sign in to view your cart"); return openAuth("login"); }
+  show("#cartDrawer"); loadCart();
+};
+
+$("#checkout").onclick = async () => {
+  const btn = $("#checkout");
+  btn.disabled = true; btn.textContent = "Placing order...";
+  try {
+    const o = await api("/orders", { method: "POST" });
+    S.cart = EMPTY_CART; renderCart(); closeAll();
+    toast(`Order #${o.id} placed. Thank you!`);
+    loadProducts().catch(() => {});
+  } catch (err) {
+    toast(err.message); await loadCart(); loadProducts().catch(() => {});
+  } finally {
+    btn.textContent = "Checkout"; btn.disabled = !S.cart.items.length;
+  }
+};
+
+/* ---------- auth ---------- */
+function renderSession() {
+  $("#who").textContent = S.user ? `Hi, ${S.user.name.split(" ")[0]}` : "";
+  $("#authBtn").textContent = S.user ? "Sign out" : "Sign in";
+  $("#ordersBtn").hidden = !S.user;
+}
+function setSession(token, user) {
+  S.token = token; S.user = user;
+  localStorage.setItem("token", token); localStorage.setItem("user", JSON.stringify(user));
+  renderSession();
+}
+function signOut(silent) {
+  S.token = null; S.user = null; S.cart = EMPTY_CART;
+  localStorage.removeItem("token"); localStorage.removeItem("user");
+  renderSession(); renderCart();
+  if (!silent) toast("Signed out");
+}
+function setMode(mode) {
+  S.mode = mode;
+  const reg = mode === "register";
+  document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("act", b.dataset.mode === mode));
+  $("#nameField").hidden = !reg;
+  $("#nameField input").disabled = !reg; $("#nameField input").required = reg;
+  $("#authTitle").textContent = reg ? "Create your account" : "Welcome back";
+  $("#authSubmit").textContent = reg ? "Create account" : "Sign in";
+  $("#authErr").textContent = "";
+}
+function openAuth(mode) { setMode(mode); show("#authModal"); }
+document.querySelectorAll(".tabs button").forEach((b) => (b.onclick = () => setMode(b.dataset.mode)));
+$("#authBtn").onclick = () => (S.user ? signOut() : openAuth("login"));
+
+$("#authForm").onsubmit = async (e) => {
+  e.preventDefault();
+  $("#authErr").textContent = "";
+  try {
+    const r = await api("/auth/" + S.mode, { method: "POST", body: Object.fromEntries(new FormData(e.target)) });
+    setSession(r.token, r.user); closeAll(); e.target.reset();
+    toast(`Welcome, ${r.user.name}`); loadCart();
+  } catch (err) { $("#authErr").textContent = err.message; }
+};
+
+/* ---------- orders ---------- */
+$("#ordersBtn").onclick = async () => {
+  show("#ordersModal");
+  const box = $("#ordersList");
+  box.innerHTML = `<div class="empty">Loading...</div>`;
+  try {
+    const orders = await api("/orders");
+    box.innerHTML = orders.length
+      ? orders.map((o) => `
+        <div class="order">
+          <div class="h"><b>Order #${o.id}</b><span class="pill">${esc(o.status)}</span></div>
+          <div class="h"><span>${new Date(o.createdAt).toLocaleString()}</span><b>${money(o.totalCents)}</b></div>
+          ${o.items.map((i) => `<div>${esc(i.image)} ${esc(i.name)} × ${i.qty}</div>`).join("")}
+        </div>`).join("")
+      : `<div class="empty">No orders yet.</div>`;
+  } catch (err) { box.innerHTML = `<div class="empty">${esc(err.message)}</div>`; }
+};
+
+/* ---------- boot ---------- */
+renderSession(); renderCart(); renderChips();
+api("/products/categories").then((c) => { S.cats = ["All", ...c]; renderChips(); }).catch(() => {});
+loadProducts().catch(() => toast("Could not load products"));
+if (S.token) loadCart();
+</script>
+</body>
+</html>
