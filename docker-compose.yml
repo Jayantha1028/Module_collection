@@ -184,3 +184,71 @@ services:
     build: ./gitdeck-dashboard-service
     ports: ["8140:80"]
     restart: unless-stopped
+
+  # --- DevSecOps, Chaos & Telemetry Services ---
+  ci-security-gate-service:
+    build: ./ci-security-gate-service
+    ports: ["8150:8150"]
+    restart: unless-stopped
+
+  security-chaos-testing-service:
+    build: ./security-chaos-testing-service
+    ports: ["8151:8151"]
+    restart: unless-stopped
+
+  telemetry-observability-service:
+    build: ./telemetry-observability-service
+    ports: ["8152:8152"]
+    restart: unless-stopped
+
+  database-backup-restore-service:
+    build: ./database-backup-restore-service
+    ports: ["8153:8153"]
+    restart: unless-stopped
+
+  snowflake-sync-service:
+    build: ./snowflake-sync-service
+    ports: ["8154:8154"]
+    restart: unless-stopped
+
+  # --- Intelligence, Governance, Native Defense & Streaming Services ---
+  news-intelligence-service:
+    build: ./news-intelligence-service
+    ports: ["8160:8160"]
+    restart: unless-stopped
+
+  public-gov-audit-service:
+    build: ./public-gov-audit-service
+    ports: ["8161:8161"]
+    restart: unless-stopped
+
+  system-optimizer-service:
+    build: ./system-optimizer-service
+    ports: ["8162:8162"]
+    restart: unless-stopped
+
+  k8s-native-defense-service:
+    build: ./k8s-native-defense-service
+    ports: ["8163:8163"]
+    restart: unless-stopped
+
+  multiverse-chat-service:
+    build: ./multiverse-chat-service
+    ports: ["8164:8164"]
+    restart: unless-stopped
+
+  digidocs-verification-service:
+    build: ./digidocs-verification-service
+    ports: ["8165:8165"]
+    restart: unless-stopped
+
+  3d-geo-mapping-service:
+    build: ./3d-geo-mapping-service
+    ports: ["8166:80"]
+    restart: unless-stopped
+
+  multimedia-streaming-service:
+    build: ./multimedia-streaming-service
+    ports: ["8167:8167"]
+    restart: unless-stopped
+

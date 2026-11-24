@@ -1,6 +1,6 @@
 # Collected Microservices Suite
 
-A master repository of **35 production-ready microservices** extracted and modularized across all folders in the workspace, complete with standalone Dockerfiles, REST APIs, dependency manifests, and comprehensive documentation.
+A master repository of **48 production-ready microservices** extracted and modularized across all folders in the workspace, complete with standalone Dockerfiles, REST APIs, dependency manifests, and comprehensive documentation.
 
 > **Integrity Guarantee:** All original folders in the workspace remain 100% intact and untouched. All microservices are collected independently within `collected_microservices/`.
 
@@ -45,6 +45,19 @@ A master repository of **35 production-ready microservices** extracted and modul
 | 33 | `currency-exchange-service` | Financial Data | `sample_data` | 8132 | FastAPI / Pandas | World currency database, country ISO mapping, rate conversion |
 | 34 | `academic-records-service` | Institutional Data | `sample_data` | 8133 | FastAPI / Pandas | Student CGPA analysis, faculty mentorship allocation, staff directory |
 | 35 | `gitdeck-dashboard-service` | Developer Tools | `gitdeck.html` | 8140 | NGINX Alpine / HTML5 | Pegboard developer dashboard for Git and repo productivity |
+| 36 | `ci-security-gate-service` | Security & Audit | `ci_pipeline` | 8150 | FastAPI / Python | Automated PR security gate, CVE thresholds, policy blocker |
+| 37 | `security-chaos-testing-service` | Infrastructure | `chaos_mesh` | 8151 | FastAPI / Python | Chaos engineering orchestrator for pod termination & privilege abuse |
+| 38 | `telemetry-observability-service` | Infrastructure | `telemetry` | 8152 | FastAPI / Prometheus | Multi-cluster OpenTelemetry exporter & metrics aggregator |
+| 39 | `database-backup-restore-service` | Data & Analytics | `db_ops` | 8153 | FastAPI / PostgreSQL | Automated database snapshotting, verify restore, cold-storage sync |
+| 40 | `snowflake-sync-service` | Data & Analytics | `common_integrations` | 8154 | FastAPI / Snowflake | Zero credit waste Snowflake ETL sync planner |
+| 41 | `news-intelligence-service` | AI & NLP | `news_portal` | 8160 | FastAPI / Python | Extractive 3-bullet summarizer & opportunity detection |
+| 42 | `public-gov-audit-service` | Security & Audit | `Public-gov` | 8161 | FastAPI / Python | Benford's Law compliance & KTPP tender splitting detection |
+| 43 | `system-optimizer-service` | Infrastructure | `System_optimizer` | 8162 | FastAPI / psutil | Hardware telemetry, memory pressure balancer & cache reclamation |
+| 44 | `k8s-native-defense-service` | Security & Audit | `native_K8S_scanner` | 8163 | FastAPI / Cryptography | Sigstore Cosign verification, VEX filter, attack graph analysis |
+| 45 | `multiverse-chat-service` | AI & NLP | `chat_app` | 8164 | FastAPI / Python | Non-linear conversational tree node branching engine |
+| 46 | `digidocs-verification-service` | Security & Audit | `digidocs` | 8165 | FastAPI / Cryptography | SHA-256 fingerprinting & digital document authenticity ledger |
+| 47 | `3d-geo-mapping-service` | Web Applications | `3dmap-main` | 8166 | NGINX Alpine / Three.js | Interactive 3D geospatial terrain viewer & map projection |
+| 48 | `multimedia-streaming-service` | Media & Streaming | `MultiMedia` | 8167 | FastAPI / Python | Adaptive bitrate video transcoding & HLS streaming catalog |
 
 ---
 

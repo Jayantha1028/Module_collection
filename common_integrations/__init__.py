@@ -376,5 +376,42 @@ __all__ = [
     "tokenize_for_similarity", "calculate_jaccard_similarity", "find_matching_cluster",
     "evaluate_admission_review", "mutate_admission_review",
     "EBPFTraceEvent", "evaluate_syscall_event",
-    "parse_dpkg_status", "parse_apk_installed", "parse_requirements_txt"
+    "parse_dpkg_status", "parse_apk_installed", "parse_requirements_txt",
+    # 49-53 new exports
+    "analyze_benford_compliance", "detect_tender_splitting",
+    "compute_doc_fingerprint", "verify_document_integrity",
+    "collect_host_telemetry",
+    "deg_to_num", "num_to_deg",
+    "generate_hls_transcode_commands", "STANDARD_LADDER"
 ]
+
+# 49. Forensic Audit & Public Finance
+from .government_transparency_auditor import (
+    analyze_benford_compliance,
+    detect_tender_splitting,
+    BENFORD_DIST
+)
+
+# 50. Cryptographic Document Verifier
+from .document_signer_verifier import (
+    compute_doc_fingerprint,
+    verify_document_integrity
+)
+
+# 51. Host Telemetry & Resource Prober
+from .system_metrics_telemetry import (
+    collect_host_telemetry
+)
+
+# 52. Geospatial Map Tile Projector
+from .map_tile_projector import (
+    deg_to_num,
+    num_to_deg
+)
+
+# 53. Adaptive Video Transcoder
+from .media_stream_transcoder import (
+    generate_hls_transcode_commands,
+    STANDARD_LADDER
+)
+

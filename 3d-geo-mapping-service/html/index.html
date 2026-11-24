@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Karnataka in 3D</title>
+
+  <!-- Performance & Preconnect resource hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://maps.googleapis.com" />
+  <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+  <link rel="dns-prefetch" href="https://places.googleapis.com" />
+
+  <!-- Critical assets preload -->
+  <link rel="preload" href="assets/css/style.css" as="style" />
+  <link rel="preload" href="assets/data/districts.js" as="script" />
+  <link rel="modulepreload" href="assets/js/app.js" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- The 3D map fills the screen -->
+  <div id="map-host"></div>
+
+  <!-- Left panel: search, explore, landmarks -->
+  <aside id="sidebar" class="panel">
+    <header class="brand">
+      <div>
+        <h1 id="brand-title"><span id="district-title">Udupi</span> <span class="accent">in 3D</span></h1>
+        <p id="brand-sub" class="sub">31 Districts of Karnataka • 3D Terrain &amp; Places</p>
+      </div>
+      <button id="sidebar-close" class="icon-btn only-mobile" aria-label="Close panel">✕</button>
+    </header>
+
+    <div class="district-bar">
+      <label for="district-select" class="picker-label">Select District</label>
+      <div class="select-wrap">
+        <select id="district-select" class="district-select" aria-label="Choose Karnataka District"></select>
+      </div>
+    </div>
+
+    <div id="search-slot" class="search-slot" aria-label="Search places in Udupi district"></div>
+
+    <section class="block">
+      <h2>Explore around the view</h2>
+      <div id="explore-chips" class="chips"></div>
+      <p id="explore-status" class="hint"></p>
+    </section>
+
+    <section class="block grow">
+      <div class="row-between">
+        <h2>Landmarks</h2>
+        <button id="tour-btn" class="text-btn">▶ Start tour</button>
+      </div>
+      <input id="lm-filter" class="filter" type="search" placeholder="Filter landmarks…" autocomplete="off" />
+      <div id="landmark-list" class="lm-list"></div>
+    </section>
+
+    <footer class="side-foot">
+      <button id="help-btn" class="text-btn">Mouse &amp; keyboard controls</button>
+      <button id="key-btn" class="text-btn muted">Change API key</button>
+    </footer>
+  </aside>
+
+  <button id="sidebar-open" class="fab only-mobile" aria-label="Open panel">☰ Explore</button>
+
+  <!-- Top-right map controls -->
+  <div id="map-controls" class="panel controls">
+    <div class="seg" role="group" aria-label="Map style">
+      <button data-mode="HYBRID" class="on">Satellite + labels</button>
+      <button data-mode="SATELLITE">Satellite</button>
+      <button data-mode="ROADMAP">Map</button>
+    </div>
+    <div class="ctl-row">
+      <button id="home-btn" title="Back to district center">⌂ District</button>
+      <button id="orbit-btn" title="Orbit around the current view">⟳ Orbit</button>
+      <button id="topdown-btn" title="Toggle top-down / tilted view">⤓ Tilt</button>
+    </div>
+  </div>
+
+  <!-- Right panel: place details -->
+  <aside id="details" class="panel details hidden" aria-live="polite">
+    <button id="details-close" class="icon-btn close" aria-label="Close details">✕</button>
+    <div id="details-body"></div>
+  </aside>
+
+  <!-- Coverage note -->
+  <div id="note" class="note panel">
+    Google has no photorealistic 3D buildings for India yet, so this shows real satellite imagery on real 3D terrain.
+    The same page will show 3D buildings automatically if Google adds them.
+    <button id="note-close" class="text-btn">Got it</button>
+  </div>
+
+  <!-- Controls help -->
+  <div id="help" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="help-title">
+    <div class="modal-card panel">
+      <h2 id="help-title">Moving around</h2>
+      <table class="keys">
+        <tr><td>Left-drag</td><td>Move across the map</td></tr>
+        <tr><td>Right-drag, or Ctrl + drag</td><td>Rotate and tilt the camera</td></tr>
+        <tr><td>Scroll wheel</td><td>Zoom in and out</td></tr>
+        <tr><td>Double-click</td><td>Zoom in on a spot</td></tr>
+        <tr><td>W A S D or arrow keys</td><td>Fly forward, left, back, right</td></tr>
+        <tr><td>Q / E</td><td>Turn left / right</td></tr>
+        <tr><td>R / F</td><td>Tilt up / down</td></tr>
+        <tr><td>Z / X</td><td>Zoom in / out</td></tr>
+        <tr><td>Click a label or pin</td><td>Show details for that place</td></tr>
+        <tr><td>Click anywhere else</td><td>See what's at that spot</td></tr>
+      </table>
+      <button class="primary" data-close>Close</button>
+    </div>
+  </div>
+
+  <!-- First-run: API key setup -->
+  <div id="setup" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="setup-title">
+    <div class="modal-card panel setup">
+      <h2 id="setup-title">Connect Google Maps</h2>
+      <p>This site draws Karnataka in 3D from Google's own 3D map and place data, so it needs a Google Maps API key. You paste it once; it's stored only in this browser.</p>
+      <ol>
+        <li>Fastest, no card needed: get a free <a href="https://developers.google.com/maps/demo-key" target="_blank" rel="noopener">Maps Demo Key</a> (daily limit; Google place photos aren&rsquo;t included).</li>
+        <li>Or in <a href="https://console.cloud.google.com/google/maps-apis/overview" target="_blank" rel="noopener">Google Cloud Console</a>, create a key and enable <b>Maps JavaScript API</b> and <b>Places API (New)</b>. Restrict it to <code>http://localhost:*</code>.</li>
+      </ol>
+      <form id="setup-form">
+        <input id="setup-key" type="password" placeholder="Paste your API key (starts with AIza…)" autocomplete="off" spellcheck="false" required />
+        <button class="primary" type="submit">Open Karnataka in 3D</button>
+      </form>
+      <p id="setup-error" class="error"></p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <div id="loading" class="loading hidden">Loading 3D imagery…</div>
+
+  <!-- Non-blocking asynchronous configuration load -->
+  <script>
+    (function() {
+      function loadOptional(src, next) {
+        const s = document.createElement("script");
+        s.src = src;
+        s.onerror = () => { if (next) next(); };
+        document.head.appendChild(s);
+      }
+      loadOptional("config.js", () => loadOptional("assets/js/config.js"));
+    })();
+  </script>
+
+  <!-- Parallel deferred data & app modules -->
+  <script defer src="assets/data/landmarks.js"></script>
+  <script defer src="assets/data/districts.js"></script>
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

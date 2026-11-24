@@ -1,6 +1,6 @@
 {
   "catalog_version": "1.0.0",
-  "total_microservices": 35,
+  "total_microservices": 48,
   "collected_folder": "collected_microservices",
   "microservices": [
     {
@@ -317,6 +317,123 @@
       "category": "Developer Tools",
       "health_url": "http://localhost:8140/",
       "description": "Customizable 3-column pegboard developer dashboard for Git and repo productivity"
+    },
+    {
+      "name": "ci-security-gate-service",
+      "port": 8150,
+      "source_folder": "ci_pipeline",
+      "stack": "FastAPI / Python",
+      "category": "Security & Audit",
+      "health_url": "http://localhost:8150/health",
+      "description": "Automated pull-request security gate, vulnerability threshold evaluator, and policy blocker"
+    },
+    {
+      "name": "security-chaos-testing-service",
+      "port": 8151,
+      "source_folder": "chaos_mesh",
+      "stack": "FastAPI / Python",
+      "category": "Infrastructure & Reliability",
+      "health_url": "http://localhost:8151/health",
+      "description": "Security chaos engineering orchestrator simulating pod termination, privilege abuse, and network latency"
+    },
+    {
+      "name": "telemetry-observability-service",
+      "port": 8152,
+      "source_folder": "telemetry",
+      "stack": "FastAPI / Prometheus / Grafana",
+      "category": "Infrastructure & Reliability",
+      "health_url": "http://localhost:8152/health",
+      "description": "Multi-cluster metrics broker, OpenTelemetry exporter, and Prometheus telemetry aggregator"
+    },
+    {
+      "name": "database-backup-restore-service",
+      "port": 8153,
+      "source_folder": "db_ops",
+      "stack": "FastAPI / PostgreSQL / SQLite",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8153/health",
+      "description": "Automated snapshot creation, database restore verification, and cold-storage replication"
+    },
+    {
+      "name": "snowflake-sync-service",
+      "port": 8154,
+      "source_folder": "common_integrations",
+      "stack": "FastAPI / Snowflake / Python",
+      "category": "Data & Analytics",
+      "health_url": "http://localhost:8154/health",
+      "description": "Cost-optimized ETL pipeline orchestrator and Snowflake sync planner with zero credit waste enforcement"
+    },
+    {
+      "name": "news-intelligence-service",
+      "port": 8160,
+      "source_folder": "news_portal",
+      "stack": "FastAPI / Python / SQLite",
+      "category": "AI & NLP",
+      "health_url": "http://localhost:8160/health",
+      "description": "Real-time personalized news intelligence, extractive 3-bullet summarizer, and tech opportunity classifier"
+    },
+    {
+      "name": "public-gov-audit-service",
+      "port": 8161,
+      "source_folder": "Public-gov",
+      "stack": "FastAPI / Python / Statistics",
+      "category": "Security & Audit",
+      "health_url": "http://localhost:8161/health",
+      "description": "Public sector procurement forensic auditor, Benford's Law compliance, and KTPP anti-tender-splitting detector"
+    },
+    {
+      "name": "system-optimizer-service",
+      "port": 8162,
+      "source_folder": "System_optimizer",
+      "stack": "FastAPI / Python / psutil",
+      "category": "Infrastructure & Reliability",
+      "health_url": "http://localhost:8162/health",
+      "description": "Host and container hardware telemetry, memory pressure balancer, and resource reclamation planner"
+    },
+    {
+      "name": "k8s-native-defense-service",
+      "port": 8163,
+      "source_folder": "native_K8S_scanner",
+      "stack": "FastAPI / Python / Cryptography",
+      "category": "Security & Audit",
+      "health_url": "http://localhost:8163/health",
+      "description": "Kubernetes supply chain security, Sigstore Cosign signature verifier, VEX advisory filter, and attack graphs"
+    },
+    {
+      "name": "multiverse-chat-service",
+      "port": 8164,
+      "source_folder": "chat_app",
+      "stack": "FastAPI / Python / SQLite",
+      "category": "AI & NLP",
+      "health_url": "http://localhost:8164/health",
+      "description": "Non-linear conversational branching tree node engine for speculative and alternate dialogue timelines"
+    },
+    {
+      "name": "digidocs-verification-service",
+      "port": 8165,
+      "source_folder": "digidocs",
+      "stack": "FastAPI / Python / Cryptography",
+      "category": "Security & Audit",
+      "health_url": "http://localhost:8165/health",
+      "description": "Digital document authenticity verification, SHA-256 fingerprinting, and tamper audit ledger"
+    },
+    {
+      "name": "3d-geo-mapping-service",
+      "port": 8166,
+      "source_folder": "3dmap-main",
+      "stack": "NGINX Alpine / HTML5 / Three.js",
+      "category": "Web Applications",
+      "health_url": "http://localhost:8166/",
+      "description": "Interactive 3D geospatial terrain rendering and map projection visualization web service"
+    },
+    {
+      "name": "multimedia-streaming-service",
+      "port": 8167,
+      "source_folder": "MultiMedia",
+      "stack": "FastAPI / Python / HLS",
+      "category": "Media & Streaming",
+      "health_url": "http://localhost:8167/health",
+      "description": "Adaptive bitrate video transcoding job specifications, HLS/DASH manifest generation, and streaming catalog"
     }
   ]
 }
